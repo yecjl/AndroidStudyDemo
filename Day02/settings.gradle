@@ -1,0 +1,1 @@
+include ':01_junit', ':02_logcat', ':03_login', ':04_filepermission', ':04_otherfilepermission', ':05_login_sp', ':06_settingcenter', ':07_studentinfosystem', ':07_studentinfosystem_serializer', ':07_studentinfosystem_pullparser', ':08_testphone'

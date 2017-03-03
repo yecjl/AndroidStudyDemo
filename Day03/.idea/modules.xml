@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_dbcreate/01_dbcreate.iml" filepath="$PROJECT_DIR$/01_dbcreate/01_dbcreate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_studentinfosystem_db/02_studentinfosystem_db.iml" filepath="$PROJECT_DIR$/02_studentinfosystem_db/02_studentinfosystem_db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_listviewbeginer/03_listviewbeginer.iml" filepath="$PROJECT_DIR$/03_listviewbeginer/03_listviewbeginer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_normaldialogue/04_normaldialogue.iml" filepath="$PROJECT_DIR$/04_normaldialogue/04_normaldialogue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_databasetransaction/05_databasetransaction.iml" filepath="$PROJECT_DIR$/05_databasetransaction/05_databasetransaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_moreadapter/06_moreadapter.iml" filepath="$PROJECT_DIR$/06_moreadapter/06_moreadapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_animation/07_animation.iml" filepath="$PROJECT_DIR$/07_animation/07_animation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08_internationalization/08_internationalization.iml" filepath="$PROJECT_DIR$/08_internationalization/08_internationalization.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09_styleAndtheme/09_styleAndtheme.iml" filepath="$PROJECT_DIR$/09_styleAndtheme/09_styleAndtheme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day03.iml" filepath="$PROJECT_DIR$/Day03.iml" />
+    </modules>
+  </component>
+</project>

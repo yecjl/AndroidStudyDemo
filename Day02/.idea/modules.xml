@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_junit/01_junit.iml" filepath="$PROJECT_DIR$/01_junit/01_junit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_logcat/02_logcat.iml" filepath="$PROJECT_DIR$/02_logcat/02_logcat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_login/03_login.iml" filepath="$PROJECT_DIR$/03_login/03_login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_filepermission/04_filepermission.iml" filepath="$PROJECT_DIR$/04_filepermission/04_filepermission.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_otherfilepermission/04_otherfilepermission.iml" filepath="$PROJECT_DIR$/04_otherfilepermission/04_otherfilepermission.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_login_sp/05_login_sp.iml" filepath="$PROJECT_DIR$/05_login_sp/05_login_sp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_settingcenter/06_settingcenter.iml" filepath="$PROJECT_DIR$/06_settingcenter/06_settingcenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_studentinfosystem/07_studentinfosystem.iml" filepath="$PROJECT_DIR$/07_studentinfosystem/07_studentinfosystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_studentinfosystem_pullparser/07_studentinfosystem_pullparser.iml" filepath="$PROJECT_DIR$/07_studentinfosystem_pullparser/07_studentinfosystem_pullparser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_studentinfosystem_serializer/07_studentinfosystem_serializer.iml" filepath="$PROJECT_DIR$/07_studentinfosystem_serializer/07_studentinfosystem_serializer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08_testphone/08_testphone.iml" filepath="$PROJECT_DIR$/08_testphone/08_testphone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day02.iml" filepath="$PROJECT_DIR$/Day02.iml" />
+    </modules>
+  </component>
+</project>

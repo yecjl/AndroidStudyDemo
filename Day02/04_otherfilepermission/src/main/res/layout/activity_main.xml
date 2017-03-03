@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="danke.otherfilepermission.com.study.otherfilepermission.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我的其他的应用，读取04_filePermission" />
+
+    <Button
+        android:id="@+id/btn_readPrivate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="读文件private.txt"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_writePrivate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="写文件private.txt"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_readPublic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="读文件public.txt"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_writePublic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="写文件public.txt"
+        android:textAllCaps="false" />
+</LinearLayout>

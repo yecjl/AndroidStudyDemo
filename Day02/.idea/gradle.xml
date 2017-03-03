@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/01_junit" />
+            <option value="$PROJECT_DIR$/02_logcat" />
+            <option value="$PROJECT_DIR$/03_login" />
+            <option value="$PROJECT_DIR$/04_filepermission" />
+            <option value="$PROJECT_DIR$/04_otherfilepermission" />
+            <option value="$PROJECT_DIR$/05_login_sp" />
+            <option value="$PROJECT_DIR$/06_settingcenter" />
+            <option value="$PROJECT_DIR$/07_studentinfosystem" />
+            <option value="$PROJECT_DIR$/07_studentinfosystem_pullparser" />
+            <option value="$PROJECT_DIR$/07_studentinfosystem_serializer" />
+            <option value="$PROJECT_DIR$/08_testphone" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
