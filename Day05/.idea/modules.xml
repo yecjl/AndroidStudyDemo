@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_getpost/01_getpost.iml" filepath="$PROJECT_DIR$/01_getpost/01_getpost.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_getpost_httpclient/02_getpost_httpclient.iml" filepath="$PROJECT_DIR$/02_getpost_httpclient/02_getpost_httpclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_getpost_async/03_getpost_async.iml" filepath="$PROJECT_DIR$/03_getpost_async/03_getpost_async.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day05.iml" filepath="$PROJECT_DIR$/Day05.iml" />
+    </modules>
+  </component>
+</project>

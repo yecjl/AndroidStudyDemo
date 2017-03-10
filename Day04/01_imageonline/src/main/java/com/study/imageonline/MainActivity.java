@@ -3,6 +3,8 @@ package com.study.imageonline;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,13 +17,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static android.R.attr.type;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,12 +31,29 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.iv_result)
     ImageView ivResult;
 
+    private static final int SUCCESS = 1;
+    private static final int ERROR = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
     }
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case SUCCESS:
+                    ivResult.setImageBitmap((Bitmap) msg.obj);
+                    break;
+                case ERROR:
+                    Toast.makeText(MainActivity.this, "图片加载失败", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+    };
 
     @OnClick(R.id.tb_load)
     public void onClick() {
@@ -65,15 +81,18 @@ public class MainActivity extends AppCompatActivity {
                         is = conn.getInputStream();
                         final Bitmap bitmap = BitmapFactory.decodeStream(is);
 
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                ivResult.setImageBitmap(bitmap);
-                            }
-                        });
+                        // 复用历史消息，而不是每次都创建新的消息
+                        Message msg = Message.obtain();
+                        msg.what = SUCCESS;
+                        msg.obj = bitmap;
+                        mHandler.sendMessage(msg);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
+                    Message msg = Message.obtain();
+                    msg.what = ERROR;
+                    mHandler.sendMessage(msg);
+
                 } finally {
                     if (is != null) {
                         try {

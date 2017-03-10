@@ -3,6 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/01_imageonline/01_imageonline.iml" filepath="$PROJECT_DIR$/01_imageonline/01_imageonline.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_counter/02_counter.iml" filepath="$PROJECT_DIR$/02_counter/02_counter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_htmlviewer/03_htmlviewer.iml" filepath="$PROJECT_DIR$/03_htmlviewer/03_htmlviewer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_phonetest/04_phonetest.iml" filepath="$PROJECT_DIR$/04_phonetest/04_phonetest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_weather/05_weather.iml" filepath="$PROJECT_DIR$/05_weather/05_weather.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_news/06_news.iml" filepath="$PROJECT_DIR$/06_news/06_news.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_myimagenews/07_myimagenews.iml" filepath="$PROJECT_DIR$/07_myimagenews/07_myimagenews.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day04.iml" filepath="$PROJECT_DIR$/Day04.iml" />
     </modules>
   </component>

@@ -1,1 +1,1 @@
-include ':01_imageonline'
+include ':01_imageonline', ':02_counter', ':03_htmlviewer', ':04_phonetest', ':05_weather', ':06_news', ':07_myimagenews'

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp">
+
+    <TextView
+        android:id="@+id/tv_date"
+        style="@style/text_content"
+        android:layout_width="40dp"
+        android:layout_weight="0"/>
+
+    <TextView
+        android:id="@+id/tv_week"
+        style="@style/text_content"
+        android:layout_width="50dp"
+        android:layout_weight="0"/>
+
+    <TextView
+        android:id="@+id/tv_degree"
+        style="@style/text_content" />
+
+    <TextView
+        android:id="@+id/tv_fengxiang"
+        style="@style/text_content" />
+
+    <TextView
+        android:id="@+id/tv_fengli"
+        style="@style/text_content" />
+
+    <ImageView
+        android:id="@+id/iv_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

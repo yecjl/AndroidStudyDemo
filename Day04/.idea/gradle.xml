@@ -9,6 +9,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/01_imageonline" />
+            <option value="$PROJECT_DIR$/02_counter" />
+            <option value="$PROJECT_DIR$/03_htmlviewer" />
+            <option value="$PROJECT_DIR$/04_phonetest" />
+            <option value="$PROJECT_DIR$/05_weather" />
+            <option value="$PROJECT_DIR$/06_news" />
+            <option value="$PROJECT_DIR$/07_myimagenews" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

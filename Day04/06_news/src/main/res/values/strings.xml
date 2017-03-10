@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">06_新闻客户端</string>
+    <string name="path">http://news.qq.com/newsgn/rss_newsgn.xml</string>
+</resources>
