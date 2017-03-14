@@ -1,1 +1,1 @@
-include ':01_getpost', ':02_getpost_httpclient', ':03_getpost_async'
+include ':01_getpost', ':02_getpost_httpclient', ':03_getpost_async', ':04_upload_async', ':05_morethreaddownload', ':06_morethreaddownload_xutils'

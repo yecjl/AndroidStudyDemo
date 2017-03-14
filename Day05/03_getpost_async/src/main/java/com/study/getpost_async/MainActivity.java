@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -25,12 +26,14 @@ import org.apache.http.message.BasicNameValuePair;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -78,30 +81,42 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        int methodID = rg.getCheckedRadioButtonId();
-        String path = "http://api.k780.com:88/";
-        String paramsData = "app=phone.get&phone=" + URLEncoder.encode(phone, "utf-8") + "&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=xml";
+        try {
+            int methodID = rg.getCheckedRadioButtonId();
+            String path = "http://api.k780.com:88/";
+            String paramsData = "app=phone.get&phone=" + URLEncoder.encode(phone, "utf-8") + "&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=xml";
 
-        // HttpClient
-        AsyncHttpClient client = new AsyncHttpClient();
-        switch (methodID) {
-            case R.id.rb_post: // POST请求
-                break;
-            case R.id.rb_get: // GET请求
-
-                client.get(path + "?" + paramsData, new AsyncHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-
-                    }
-
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
-                    }
-                })
-            default:
-                break;
+            // HttpClient
+            AsyncHttpClient client = new AsyncHttpClient();
+            switch (methodID) {
+                case R.id.rb_post: // POST请求
+                    RequestParams params = new RequestParams();
+                    params.put("phone", phone);
+                    params.put("app", "phone.get");
+                    params.put("appkey", "10003");
+                    params.put("sign", "b59bc3ef6191eb9f747dd4e83c99f2a4");
+                    params.put("format", "xml");
+                    client.post(path, params, asyncHttpResponseHandler);
+                    break;
+                case R.id.rb_get: // GET请求
+                    client.get(path + "?" + paramsData, asyncHttpResponseHandler);
+                default:
+                    break;
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
     }
+
+    private AsyncHttpResponseHandler asyncHttpResponseHandler = new AsyncHttpResponseHandler() {
+        @Override
+        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+            tvResult.setText(new String(responseBody));
+        }
+
+        @Override
+        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+            tvResult.setText("请求失败： " + new String(responseBody));
+        }
+    };
 }

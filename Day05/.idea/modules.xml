@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/01_getpost/01_getpost.iml" filepath="$PROJECT_DIR$/01_getpost/01_getpost.iml" />
       <module fileurl="file://$PROJECT_DIR$/02_getpost_httpclient/02_getpost_httpclient.iml" filepath="$PROJECT_DIR$/02_getpost_httpclient/02_getpost_httpclient.iml" />
       <module fileurl="file://$PROJECT_DIR$/03_getpost_async/03_getpost_async.iml" filepath="$PROJECT_DIR$/03_getpost_async/03_getpost_async.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_upload_async/04_upload_async.iml" filepath="$PROJECT_DIR$/04_upload_async/04_upload_async.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_morethreaddownload/05_morethreaddownload.iml" filepath="$PROJECT_DIR$/05_morethreaddownload/05_morethreaddownload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_morethreaddownload_xutils/06_morethreaddownload_xutils.iml" filepath="$PROJECT_DIR$/06_morethreaddownload_xutils/06_morethreaddownload_xutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day05.iml" filepath="$PROJECT_DIR$/Day05.iml" />
     </modules>
   </component>

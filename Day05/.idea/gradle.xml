@@ -11,6 +11,9 @@
             <option value="$PROJECT_DIR$/01_getpost" />
             <option value="$PROJECT_DIR$/02_getpost_httpclient" />
             <option value="$PROJECT_DIR$/03_getpost_async" />
+            <option value="$PROJECT_DIR$/04_upload_async" />
+            <option value="$PROJECT_DIR$/05_morethreaddownload" />
+            <option value="$PROJECT_DIR$/06_morethreaddownload_xutils" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
