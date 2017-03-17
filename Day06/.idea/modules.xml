@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_moreactivity/01_moreactivity.iml" filepath="$PROJECT_DIR$/01_moreactivity/01_moreactivity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_rp_calc/02_rp_calc.iml" filepath="$PROJECT_DIR$/02_rp_calc/02_rp_calc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_otherapplication/03_otherapplication.iml" filepath="$PROJECT_DIR$/03_otherapplication/03_otherapplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_twointent/03_twointent.iml" filepath="$PROJECT_DIR$/03_twointent/03_twointent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_hiddenintent/04_hiddenintent.iml" filepath="$PROJECT_DIR$/04_hiddenintent/04_hiddenintent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_sendholidaymessage/05_sendholidaymessage.iml" filepath="$PROJECT_DIR$/05_sendholidaymessage/05_sendholidaymessage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_activitylife/06_activitylife.iml" filepath="$PROJECT_DIR$/06_activitylife/06_activitylife.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_otheractivitytransparent/06_otheractivitytransparent.iml" filepath="$PROJECT_DIR$/06_otheractivitytransparent/06_otheractivitytransparent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_gamefight/07_gamefight.iml" filepath="$PROJECT_DIR$/07_gamefight/07_gamefight.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08_taskstack/08_taskstack.iml" filepath="$PROJECT_DIR$/08_taskstack/08_taskstack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day06.iml" filepath="$PROJECT_DIR$/Day06.iml" />
+    </modules>
+  </component>
+</project>

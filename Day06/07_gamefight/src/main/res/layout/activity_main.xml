@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.study.gamefight.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_kick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kick"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_fist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_kick"
+            android:text="heavy fist"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_restart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="#5500ff00"
+            android:text="restart"
+            android:textAllCaps="false"
+            android:textColor="#f0ff00ff"
+            android:textSize="18dp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_minusBlood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/pb_blood"
+            android:layout_alignParentRight="true"
+            android:layout_alignRight="@+id/pb_blood"
+            android:layout_gravity="right"
+            android:textColor="#ff0000"
+            android:textSize="10sp" />
+
+        <ProgressBar
+            android:id="@+id/pb_blood"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ll_boss"
+            android:layout_alignParentRight="true" />
+
+        <LinearLayout
+            android:id="@+id/ll_boss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/pb_blood"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/iv_boss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/boss" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/qq" />
+    </RelativeLayout>
+</LinearLayout>
