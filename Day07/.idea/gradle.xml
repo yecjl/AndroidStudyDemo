@@ -9,6 +9,15 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/01_sdreceive" />
+            <option value="$PROJECT_DIR$/02_bootcomplete" />
+            <option value="$PROJECT_DIR$/03_callphonereceive" />
+            <option value="$PROJECT_DIR$/04_appstatereceive" />
+            <option value="$PROJECT_DIR$/05_smsreceive" />
+            <option value="$PROJECT_DIR$/06_broadcctv" />
+            <option value="$PROJECT_DIR$/06_receivecctv" />
+            <option value="$PROJECT_DIR$/07_orderbroadgovernment" />
+            <option value="$PROJECT_DIR$/07_receivebroadpeople" />
+            <option value="$PROJECT_DIR$/08_sreenreceive" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,1 +1,1 @@
-include ':01_sdreceive'
+include ':01_sdreceive', ':02_bootcomplete', ':03_callphonereceive', ':04_appstatereceive', ':05_smsreceive', ':06_broadcctv', ':06_receivecctv', ':07_orderbroadgovernment', ':07_receivebroadpeople', ':08_sreenreceive'

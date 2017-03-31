@@ -3,6 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/01_sdreceive/01_sdreceive.iml" filepath="$PROJECT_DIR$/01_sdreceive/01_sdreceive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_bootcomplete/02_bootcomplete.iml" filepath="$PROJECT_DIR$/02_bootcomplete/02_bootcomplete.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_callphonereceive/03_callphonereceive.iml" filepath="$PROJECT_DIR$/03_callphonereceive/03_callphonereceive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_appstatereceive/04_appstatereceive.iml" filepath="$PROJECT_DIR$/04_appstatereceive/04_appstatereceive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_smsreceive/05_smsreceive.iml" filepath="$PROJECT_DIR$/05_smsreceive/05_smsreceive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_broadcctv/06_broadcctv.iml" filepath="$PROJECT_DIR$/06_broadcctv/06_broadcctv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_receivecctv/06_receivecctv.iml" filepath="$PROJECT_DIR$/06_receivecctv/06_receivecctv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_orderbroadgovernment/07_orderbroadgovernment.iml" filepath="$PROJECT_DIR$/07_orderbroadgovernment/07_orderbroadgovernment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_receivebroadpeople/07_receivebroadpeople.iml" filepath="$PROJECT_DIR$/07_receivebroadpeople/07_receivebroadpeople.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08_sreenreceive/08_sreenreceive.iml" filepath="$PROJECT_DIR$/08_sreenreceive/08_sreenreceive.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day07.iml" filepath="$PROJECT_DIR$/Day07.iml" />
     </modules>
   </component>
