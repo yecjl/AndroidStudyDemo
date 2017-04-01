@@ -9,6 +9,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/01_servicestudy" />
+            <option value="$PROJECT_DIR$/02_servicelifecycle" />
+            <option value="$PROJECT_DIR$/03_musicservice" />
+            <option value="$PROJECT_DIR$/04_bindservice" />
+            <option value="$PROJECT_DIR$/05_bindservicelifecycle" />
+            <option value="$PROJECT_DIR$/06_mixservicelifecycle" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/01_servicestudy/01_servicestudy.iml" filepath="$PROJECT_DIR$/01_servicestudy/01_servicestudy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_servicelifecycle/02_servicelifecycle.iml" filepath="$PROJECT_DIR$/02_servicelifecycle/02_servicelifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_musicservice/03_musicservice.iml" filepath="$PROJECT_DIR$/03_musicservice/03_musicservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_bindservice/04_bindservice.iml" filepath="$PROJECT_DIR$/04_bindservice/04_bindservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_bindservicelifecycle/05_bindservicelifecycle.iml" filepath="$PROJECT_DIR$/05_bindservicelifecycle/05_bindservicelifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_mixservicelifecycle/06_mixservicelifecycle.iml" filepath="$PROJECT_DIR$/06_mixservicelifecycle/06_mixservicelifecycle.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day08.iml" filepath="$PROJECT_DIR$/Day08.iml" />
     </modules>
   </component>

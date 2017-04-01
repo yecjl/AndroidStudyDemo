@@ -1,1 +1,1 @@
-include ':01_servicestudy'
+include ':01_servicestudy', ':02_servicelifecycle', ':03_musicservice', ':04_bindservice', ':05_bindservicelifecycle', ':06_mixservicelifecycle'
