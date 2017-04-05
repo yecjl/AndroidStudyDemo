@@ -14,6 +14,10 @@
             <option value="$PROJECT_DIR$/04_bindservice" />
             <option value="$PROJECT_DIR$/05_bindservicelifecycle" />
             <option value="$PROJECT_DIR$/06_mixservicelifecycle" />
+            <option value="$PROJECT_DIR$/07_callremoteservice" />
+            <option value="$PROJECT_DIR$/07_remoteservice" />
+            <option value="$PROJECT_DIR$/08_alipayservice" />
+            <option value="$PROJECT_DIR$/08_callalipayservice" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -3,8 +3,10 @@ package com.study.musicservice.service;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.study.musicservice.model.MusicItem;
@@ -27,15 +29,45 @@ public class MusicService extends Service {
 
     // service发送广播使用的事件
     public final static String MUSICSERVICE_ACTION_PLAY = "MUSICSERVICE_ACTION_PLAY";
+    public final static String MUSICSERVICE_ACTION_PAUSE = "MUSICSERVICE_ACTION_PAUSE";
 
     private MediaPlayer mMediaPlayer;
     private List<MusicItem> mMusicList;
     private int mCurrentPosition = -1;
 
+    private MusicBinder mBinder = null;
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        mBinder = new MusicBinder();
+        return mBinder;
+    }
+
+    private class MusicBinder extends Binder implements IMusicService {
+
+        @Override
+        public void callPlay(int position) {
+            if (mMusicList != null && mMusicList.size() > 0) {
+                mCurrentPosition = position;
+                playPrepare(mMusicList.get(position).getPath());
+                // 发送播放音乐的广播
+                sendPlayBroadcast();
+                MusicService.this.play();
+            }
+        }
+
+        @Override
+        public void callContinuePlay() {
+            play();
+        }
+
+        @Override
+        public void callPause() {
+            // 发送暂停音乐的广播
+            sendPauseBroadcast();
+            pause();
+        }
     }
 
     @Override
@@ -46,13 +78,10 @@ public class MusicService extends Service {
         mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                int size = mMusicList.size();
-                if (mMusicList != null && size > 0) {
+                if (mMusicList != null && mMusicList.size() > 0) {
+                    int size = mMusicList.size();
                     mCurrentPosition = (mCurrentPosition + 1) % size;
-                    playPrepare(mMusicList.get(mCurrentPosition).getPath());
-
-                    // 发送播放音乐的广播
-                    sendPlayBroadcast();
+                    mBinder.callPlay(mCurrentPosition);
                 }
             }
         });
@@ -62,37 +91,22 @@ public class MusicService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null) {
             String action = intent.getAction();
-            Log.d("MusicService", action);
-            switch (action) {
-                case ACTION_INIT_MUSIC_LIST: // 初始化音乐列表
-                    // 获取播放列表
-                    mMusicList = (List<MusicItem>) intent.getSerializableExtra("musicList");
-                    // 判断是否在播放，发送播放音乐的广播
-                    if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
-                        sendPlayBroadcast();
-                    }
-                    break;
-                case ACTION_PLAY: // 播放音乐
-                    if (mMusicList != null && mMusicList.size() > 0) {
-                        mCurrentPosition = intent.getIntExtra("position", 0);
-                        playPrepare(mMusicList.get(mCurrentPosition).getPath());
-                        // 发送播放音乐的广播
-                        sendPlayBroadcast();
-                        play();
-                    }
-                    break;
-                case ACTION_PAUSE: // 暂停音乐
-                    pause();
-                    break;
-                case ACTION_STOP: // 停止音乐
-                    stop();
-                    break;
-                case ACTION_NEXT: // 播放下一个
-                    break;
+            if (!TextUtils.isEmpty(action)) {
+                switch (action) {
+                    case ACTION_INIT_MUSIC_LIST: // 初始化音乐列表
+                        // 获取播放列表
+                        mMusicList = (List<MusicItem>) intent.getSerializableExtra("musicList");
+                        // 判断是否在播放，发送播放音乐的广播
+                        if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
+                            sendPlayBroadcast();
+                        }
+                        break;
+                }
             }
         }
         return super.onStartCommand(intent, flags, startId);
     }
+
 
     /**
      * 播放前的准备
@@ -102,7 +116,7 @@ public class MusicService extends Service {
     public void playPrepare(String path) {
         try {
             if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
-                mMediaPlayer.seekTo(0);
+                mMediaPlayer.reset();
             }
             mMediaPlayer.setDataSource(path);
             mMediaPlayer.setLooping(false);
@@ -149,6 +163,15 @@ public class MusicService extends Service {
      */
     public void sendPlayBroadcast() {
         Intent playIntent = new Intent(MUSICSERVICE_ACTION_PLAY);
+        playIntent.putExtra("position", mCurrentPosition);
+        sendBroadcast(playIntent);
+    }
+
+    /**
+     * 发送播放音乐的广播
+     */
+    public void sendPauseBroadcast() {
+        Intent playIntent = new Intent(MUSICSERVICE_ACTION_PAUSE);
         playIntent.putExtra("position", mCurrentPosition);
         sendBroadcast(playIntent);
     }

@@ -1,12 +1,15 @@
 package com.study.musicservice;
 
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,6 +24,7 @@ import com.study.musicservice.adapter.MusicAdapter;
 import com.study.musicservice.db.MusicDB;
 import com.study.musicservice.model.MusicItem;
 import com.study.musicservice.service.FindMusicListService;
+import com.study.musicservice.service.IMusicService;
 import com.study.musicservice.service.MusicService;
 
 import java.util.ArrayList;
@@ -30,7 +34,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static android.transition.Fade.IN;
+import static android.R.attr.name;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
     private MusicDB mMusicDB;
     private FindMusicBroadcastReceiver mFindMusicReceiver;
     private PlayMusicBroadcastReceiver mPlayMusicReceiver;
-    private int mCurrentPosition;
+    private int mCurrentPosition = -1;
+    private IMusicService mBinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +104,11 @@ public class MainActivity extends AppCompatActivity {
             }).start();
         }
 
+        // MusicService播放音乐: 开启服务 + bind服务
+        Intent intent = new Intent(MainActivity.this, MusicService.class);
+        startService(intent);
+        bindService(intent, mConn, BIND_AUTO_CREATE);
+
         mLvMusic.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -108,28 +118,23 @@ public class MainActivity extends AppCompatActivity {
                     if (position != 0) {
                         currentPosition = position - 1;
                     }
-
-                    // MusicService播放音乐
-                    Intent intent = new Intent(MainActivity.this, MusicService.class);
-                    intent.setAction(MusicService.ACTION_PLAY);
-                    intent.putExtra("position", currentPosition);
-                    startService(intent);
+                    if (mBinder != null) {
+                        mBinder.callPlay(currentPosition);
+                    }
                 }
             }
         });
 
+        // 注册播放广播
         mPlayMusicReceiver = new PlayMusicBroadcastReceiver();
         IntentFilter playMusicFilter = new IntentFilter();
         playMusicFilter.addAction(MusicService.MUSICSERVICE_ACTION_PLAY);
         registerReceiver(mPlayMusicReceiver, playMusicFilter);
-//        new FileObserver("") {
-//            @Override
-//            public void onEvent(int event, String path) {
-//
-//            }
-//        };
     }
 
+    /**
+     * 消息处理
+     */
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -146,6 +151,21 @@ public class MainActivity extends AppCompatActivity {
                     startService(intent);
                     break;
             }
+        }
+    };
+
+    /**
+     * 绑定MusicService的Binder
+     */
+    private ServiceConnection mConn = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            mBinder = (IMusicService) service;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
         }
     };
 
@@ -172,7 +192,12 @@ public class MainActivity extends AppCompatActivity {
             String action = intent.getAction();
             switch (action) {
                 case MusicService.MUSICSERVICE_ACTION_PLAY: // 播放音乐
-                    // 获取当前正在播放的position
+                    // 将上一个数据设置为不播放状态
+                    if (mCurrentPosition != -1) {
+                        MusicItem musicItem = mMusicList.get(mCurrentPosition);
+                        musicItem.setPlaying(false);
+                    }
+                    // 更新新的正在播放的position
                     mCurrentPosition = intent.getIntExtra("position", 0);
                     // 更新Adapter数据
                     MusicItem musicItem = mMusicList.get(mCurrentPosition);
@@ -182,6 +207,9 @@ public class MainActivity extends AppCompatActivity {
                     tvName.setText(musicItem.getName());
                     ivPlayPause.setImageResource(R.mipmap.pause2);
                     break;
+                case MusicService.MUSICSERVICE_ACTION_PAUSE: // 暂停音乐:
+                    ivPlayPause.setImageResource(R.mipmap.play2);
+                    break;
             }
         }
     }
@@ -189,15 +217,23 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.iv_play_pause, R.id.iv_next})
     public void onClick(View view) {
-        Intent intent = new Intent(this, MusicService.class);
         switch (view.getId()) {
             case R.id.iv_play_pause:
-                intent.setAction(MusicService.ACTION_PAUSE);
-                startService(intent);
+                if (mBinder != null && mMusicList != null && mMusicList.size() > 0) {
+                    MusicItem musicItem = mMusicList.get(mCurrentPosition);
+                    if (musicItem.isPlaying()) {
+                        mBinder.callPause();
+                    } else {
+                        mBinder.callContinuePlay();
+                    }
+                }
                 break;
             case R.id.iv_next:
-                intent.setAction(MusicService.ACTION_NEXT);
-                startService(intent);
+                if (mBinder != null && mMusicList != null && mMusicList.size() > 0) {
+                    int size = mMusicList.size();
+                    mCurrentPosition = (mCurrentPosition + 1) % size;
+                    mBinder.callPlay(mCurrentPosition);
+                }
                 break;
         }
     }
@@ -207,6 +243,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         if (mFindMusicReceiver != null) {
             unregisterReceiver(mFindMusicReceiver);
+        }
+
+        if (mConn != null) {
+            unbindService(mConn);
+            mBinder = null;
         }
         super.onDestroy();
     }

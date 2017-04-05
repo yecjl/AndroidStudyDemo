@@ -8,6 +8,10 @@
       <module fileurl="file://$PROJECT_DIR$/04_bindservice/04_bindservice.iml" filepath="$PROJECT_DIR$/04_bindservice/04_bindservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/05_bindservicelifecycle/05_bindservicelifecycle.iml" filepath="$PROJECT_DIR$/05_bindservicelifecycle/05_bindservicelifecycle.iml" />
       <module fileurl="file://$PROJECT_DIR$/06_mixservicelifecycle/06_mixservicelifecycle.iml" filepath="$PROJECT_DIR$/06_mixservicelifecycle/06_mixservicelifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_callremoteservice/07_callremoteservice.iml" filepath="$PROJECT_DIR$/07_callremoteservice/07_callremoteservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_remoteservice/07_remoteservice.iml" filepath="$PROJECT_DIR$/07_remoteservice/07_remoteservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08_alipayservice/08_alipayservice.iml" filepath="$PROJECT_DIR$/08_alipayservice/08_alipayservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08_callalipayservice/08_callalipayservice.iml" filepath="$PROJECT_DIR$/08_callalipayservice/08_callalipayservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day08.iml" filepath="$PROJECT_DIR$/Day08.iml" />
     </modules>
   </component>
