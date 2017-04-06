@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/07_remoteservice/07_remoteservice.iml" filepath="$PROJECT_DIR$/07_remoteservice/07_remoteservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/08_alipayservice/08_alipayservice.iml" filepath="$PROJECT_DIR$/08_alipayservice/08_alipayservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/08_callalipayservice/08_callalipayservice.iml" filepath="$PROJECT_DIR$/08_callalipayservice/08_callalipayservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09_audiorecorderservice/09_audiorecorderservice.iml" filepath="$PROJECT_DIR$/09_audiorecorderservice/09_audiorecorderservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day08.iml" filepath="$PROJECT_DIR$/Day08.iml" />
     </modules>
   </component>

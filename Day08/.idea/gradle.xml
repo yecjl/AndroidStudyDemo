@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/07_remoteservice" />
             <option value="$PROJECT_DIR$/08_alipayservice" />
             <option value="$PROJECT_DIR$/08_callalipayservice" />
+            <option value="$PROJECT_DIR$/09_audiorecorderservice" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,1 +1,1 @@
-include ':01_servicestudy', ':02_servicelifecycle', ':03_musicservice', ':04_bindservice', ':05_bindservicelifecycle', ':06_mixservicelifecycle', ':07_remoteservice', ':07_callremoteservice', ':08_alipayservice', ':08_callalipayservice'
+include ':01_servicestudy', ':02_servicelifecycle', ':03_musicservice', ':04_bindservice', ':05_bindservicelifecycle', ':06_mixservicelifecycle', ':07_remoteservice', ':07_callremoteservice', ':08_alipayservice', ':08_callalipayservice', ':09_audiorecorderservice'
