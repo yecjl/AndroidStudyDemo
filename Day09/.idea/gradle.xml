@@ -11,7 +11,8 @@
             <option value="$PROJECT_DIR$/01_bankdb" />
             <option value="$PROJECT_DIR$/01_callbankdata" />
             <option value="$PROJECT_DIR$/02_callsmsdata" />
-            <option value="$PROJECT_DIR$/03_notification_api16" />
+            <option value="$PROJECT_DIR$/03_notification" />
+            <option value="$PROJECT_DIR$/04_sms_notification" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -5,7 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/01_bankdb/01_bankdb.iml" filepath="$PROJECT_DIR$/01_bankdb/01_bankdb.iml" />
       <module fileurl="file://$PROJECT_DIR$/01_callbankdata/01_callbankdata.iml" filepath="$PROJECT_DIR$/01_callbankdata/01_callbankdata.iml" />
       <module fileurl="file://$PROJECT_DIR$/02_callsmsdata/02_callsmsdata.iml" filepath="$PROJECT_DIR$/02_callsmsdata/02_callsmsdata.iml" />
-      <module fileurl="file://$PROJECT_DIR$/03_notification_api16/03_notification_api16.iml" filepath="$PROJECT_DIR$/03_notification_api16/03_notification_api16.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_notification/03_notification.iml" filepath="$PROJECT_DIR$/03_notification/03_notification.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_sms_notification/04_sms_notification.iml" filepath="$PROJECT_DIR$/04_sms_notification/04_sms_notification.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day09.iml" filepath="$PROJECT_DIR$/Day09.iml" />
     </modules>
   </component>
