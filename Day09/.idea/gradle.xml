@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/02_callsmsdata" />
             <option value="$PROJECT_DIR$/03_notification" />
             <option value="$PROJECT_DIR$/04_sms_notification" />
+            <option value="$PROJECT_DIR$/05_readcontacts" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
