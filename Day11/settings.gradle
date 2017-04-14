@@ -1,1 +1,1 @@
-include ':01_fragment'
+include ':01_fragment', ':02_fragmentlivecycle', ':03_frameanim', ':04_viewanim', ':05_viewanimxml', ':06_viewanimgetheart', ':07_propertyanim', ':08_propertyanimxml'

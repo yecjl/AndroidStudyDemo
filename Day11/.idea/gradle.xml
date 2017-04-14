@@ -9,6 +9,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/01_fragment" />
+            <option value="$PROJECT_DIR$/02_fragmentlivecycle" />
+            <option value="$PROJECT_DIR$/03_frameanim" />
+            <option value="$PROJECT_DIR$/04_viewanim" />
+            <option value="$PROJECT_DIR$/05_viewanimxml" />
+            <option value="$PROJECT_DIR$/06_viewanimgetheart" />
+            <option value="$PROJECT_DIR$/07_propertyanim" />
+            <option value="$PROJECT_DIR$/08_propertyanimxml" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

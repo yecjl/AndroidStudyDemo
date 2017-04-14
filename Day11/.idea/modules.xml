@@ -3,6 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/01_fragment/01_fragment.iml" filepath="$PROJECT_DIR$/01_fragment/01_fragment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_fragmentlivecycle/02_fragmentlivecycle.iml" filepath="$PROJECT_DIR$/02_fragmentlivecycle/02_fragmentlivecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_frameanim/03_frameanim.iml" filepath="$PROJECT_DIR$/03_frameanim/03_frameanim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_viewanim/04_viewanim.iml" filepath="$PROJECT_DIR$/04_viewanim/04_viewanim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_viewanimxml/05_viewanimxml.iml" filepath="$PROJECT_DIR$/05_viewanimxml/05_viewanimxml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_viewanimgetheart/06_viewanimgetheart.iml" filepath="$PROJECT_DIR$/06_viewanimgetheart/06_viewanimgetheart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_propertyanim/07_propertyanim.iml" filepath="$PROJECT_DIR$/07_propertyanim/07_propertyanim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08_propertyanimxml/08_propertyanimxml.iml" filepath="$PROJECT_DIR$/08_propertyanimxml/08_propertyanimxml.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day11.iml" filepath="$PROJECT_DIR$/Day11.iml" />
     </modules>
   </component>
