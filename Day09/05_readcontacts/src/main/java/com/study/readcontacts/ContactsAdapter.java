@@ -63,4 +63,9 @@ public class ContactsAdapter extends BaseAdapter {
         }
         return view;
     }
+
+    public void setList(List<ContactInfo> list) {
+        this.mList = list;
+        notifyDataSetChanged();
+    }
 }

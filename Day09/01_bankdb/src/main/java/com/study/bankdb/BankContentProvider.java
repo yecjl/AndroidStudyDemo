@@ -51,6 +51,8 @@ public class BankContentProvider extends ContentProvider {
             SQLiteDatabase db = mHelper.getWritableDatabase();
             long result = db.insert("account", null, values);
             db.close();
+            // 设置内容观察者
+            getContext().getContentResolver().notifyChange(uri, null);
             return Uri.parse(result + "");
         } else {
             throw new IllegalArgumentException("口令不正确");
@@ -64,6 +66,7 @@ public class BankContentProvider extends ContentProvider {
             SQLiteDatabase db = mHelper.getWritableDatabase();
             int result = db.delete("account", selection, selectionArgs);
             db.close();
+            getContext().getContentResolver().notifyChange(uri, null);
             return result;
         } else {
             throw new IllegalArgumentException("口令不正确");
@@ -77,6 +80,7 @@ public class BankContentProvider extends ContentProvider {
             SQLiteDatabase db = mHelper.getWritableDatabase();
             int result = db.update("account", values, selection, selectionArgs);
             db.close();
+            getContext().getContentResolver().notifyChange(uri, null);
             return result;
         } else {
             throw new IllegalArgumentException("口令不正确");

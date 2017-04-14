@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_loadimage/01_loadimage.iml" filepath="$PROJECT_DIR$/01_loadimage/01_loadimage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_imagehandle/02_imagehandle.iml" filepath="$PROJECT_DIR$/02_imagehandle/02_imagehandle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_paintplay[project]/03_paintplay[project].iml" filepath="$PROJECT_DIR$/03_paintplay[project]/03_paintplay[project].iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_tearclothes[project]/04_tearclothes[project].iml" filepath="$PROJECT_DIR$/04_tearclothes[project]/04_tearclothes[project].iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_colorimagehandle[project]/05_colorimagehandle[project].iml" filepath="$PROJECT_DIR$/05_colorimagehandle[project]/05_colorimagehandle[project].iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_musicplayer/06_musicplayer.iml" filepath="$PROJECT_DIR$/06_musicplayer/06_musicplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_shootplay/07_shootplay.iml" filepath="$PROJECT_DIR$/07_shootplay/07_shootplay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08_videoplayer/08_videoplayer.iml" filepath="$PROJECT_DIR$/08_videoplayer/08_videoplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09_surfaceviewplayer/09_surfaceviewplayer.iml" filepath="$PROJECT_DIR$/09_surfaceviewplayer/09_surfaceviewplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/10_videoplayer_v2/10_videoplayer_v2.iml" filepath="$PROJECT_DIR$/10_videoplayer_v2/10_videoplayer_v2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11_cameraphoto/11_cameraphoto.iml" filepath="$PROJECT_DIR$/11_cameraphoto/11_cameraphoto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/12_sensor_light/12_sensor_light.iml" filepath="$PROJECT_DIR$/12_sensor_light/12_sensor_light.iml" />
+      <module fileurl="file://$PROJECT_DIR$/13_sensor_orientation/13_sensor_orientation.iml" filepath="$PROJECT_DIR$/13_sensor_orientation/13_sensor_orientation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day10.iml" filepath="$PROJECT_DIR$/Day10.iml" />
+    </modules>
+  </component>
+</project>

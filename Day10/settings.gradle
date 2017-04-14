@@ -1,0 +1,1 @@
+include ':01_loadimage', ':02_imagehandle', ':03_paintplay[project]', ':04_tearclothes[project]', ':05_colorimagehandle[project]', ':06_musicplayer', ':07_shootplay', ':08_videoplayer', ':09_surfaceviewplayer', ':10_videoplayer_v2', ':11_cameraphoto', ':12_sensor_light', ':13_sensor_orientation'

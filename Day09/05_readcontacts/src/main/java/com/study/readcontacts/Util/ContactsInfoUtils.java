@@ -27,6 +27,9 @@ public class ContactsInfoUtils {
         mKeyValues.put("EMAIL", "vnd.android.cursor.item/email_v2");
     }
 
+    public static Uri rcUri = Uri.parse("content://com.android.contacts/raw_contacts"); // 联系人raw_contacts表
+    public static Uri dataUri = Uri.parse("content://com.android.contacts/data"); // 联系人data表（其实是view_data视图表）
+
     /**
      * 获取所有的联系人
      *
@@ -38,9 +41,6 @@ public class ContactsInfoUtils {
 
         // 获取内容提供者
         ContentResolver resolver = context.getContentResolver();
-
-        Uri rcUri = Uri.parse("content://com.android.contacts/raw_contacts"); // 联系人raw_contacts表
-        Uri dataUri = Uri.parse("content://com.android.contacts/data"); // 联系人data表（其实是view_data视图表）
 
         // 先查询raw_contacts表，获取联系人的id
         Cursor rcCursor = resolver.query(rcUri, new String[]{"contact_id"}, null, null, null);
@@ -94,13 +94,11 @@ public class ContactsInfoUtils {
         // 获取内容提供者
         ContentResolver resolver = context.getContentResolver();
 
-        Uri rcUri = Uri.parse("content://com.android.contacts/raw_contacts"); // 联系人raw_contacts表
-        Uri dataUri = Uri.parse("content://com.android.contacts/data"); // 联系人data表（其实是view_data视图表）
-
-        // 先查询raw_contacts表，获取联系人的id
-        Cursor rcCursor = resolver.query(rcUri, new String[]{"contact_id"}, null, null, null);
+        // 先倒叙查询查询raw_contacts表，获取联系人的id
+        Cursor rcCursor = resolver.query(rcUri, new String[]{"_id"}, null, null, "_id desc");
         if (rcCursor != null) {
-            int id = rcCursor.getCount() + 1;
+            rcCursor.moveToNext();
+            int id = rcCursor.getInt(0) + 1;
             rcCursor.close();
 
             // 添加raw_contacts表

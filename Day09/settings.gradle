@@ -1,1 +1,1 @@
-include ':01_bankdb', ':01_callbankdata', ':02_callsmsdata', ':03_notification', ':04_sms_notification', ':05_readcontacts'
+include ':01_bankdb', ':01_callbankdata', ':02_callsmsdata', ':03_notification', ':04_sms_notification', ':05_readcontacts', ':01_bankobserve', ':06_smsobserve'
