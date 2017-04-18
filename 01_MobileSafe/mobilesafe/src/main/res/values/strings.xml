@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MobileSafe</string>
+    <string name="version">https://testapi.kakasure.cn/index/version.json</string>
 </resources>
