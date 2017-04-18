@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_systemsu/01_systemsu.iml" filepath="$PROJECT_DIR$/01_systemsu/01_systemsu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_disableapp/02_disableapp.iml" filepath="$PROJECT_DIR$/02_disableapp/02_disableapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_readdb/03_readdb.iml" filepath="$PROJECT_DIR$/03_readdb/03_readdb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_install/04_install.iml" filepath="$PROJECT_DIR$/04_install/04_install.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day13.iml" filepath="$PROJECT_DIR$/Day13.iml" />
+    </modules>
+  </component>
+</project>
