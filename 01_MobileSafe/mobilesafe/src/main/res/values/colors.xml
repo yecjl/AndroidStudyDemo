@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorBackground">#1693D5</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="titleBlack">#cc000000</color>
+    <color name="descBlack">#99000000</color>
+    <color name="line">#cccccc</color>
+    <color name="line_duck">#5c5c5c</color>
+    <color name="pressed">#ffe8ecef</color>
 </resources>

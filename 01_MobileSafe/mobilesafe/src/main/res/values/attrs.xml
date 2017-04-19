@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--ItemSetView-->
+    <declare-styleable name="ItemSetView">
+        <attr name="location"> <!--枚举，设置item 的背景-->
+            <enum name="top" value="0" />
+            <enum name="middle" value="1" />
+            <enum name="bottom" value="2" />
+        </attr>
+        <attr name="itemContent" format="string|reference" /><!--设置item的内容-->
+        <attr name="isSelected" format="boolean" /> <!--是否被选中-->
+        <attr name="hasSelect" format="boolean" /><!--是否有悬着-->
+    </declare-styleable>
+</resources>

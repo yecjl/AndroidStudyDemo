@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.project.mobilesafe.activities.MainActivity">
+    tools:context="com.project.mobilesafe.activities.HomeActivity">
 
+    <!--top content-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +16,7 @@
         android:paddingRight="12dp">
 
         <ImageView
-            android:id="@+id/iv_main_icon"
+            android:id="@+id/iv_home_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -29,7 +30,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@+id/iv_main_icon"
+            android:layout_toRightOf="@+id/iv_home_icon"
             android:orientation="vertical">
 
             <TextView
@@ -53,5 +54,20 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/iv_home_setting"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentRight="true"
+            android:padding="12dp"
+            android:src="@mipmap/setting"/>
+
     </RelativeLayout>
+
+    <!--content-->
+    <GridView
+        android:id="@+id/gv_home_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2" />
 </LinearLayout>

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -47,6 +48,7 @@ public class SplashActivity extends Activity {
 
     private final static int SHOW_UPLOAD_DIALOG = 1;
     private final static int ERROR = 2;
+    private SharedPreferences config;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,22 @@ public class SplashActivity extends Activity {
         versionName = PackageUtils.getVersionName(this);
         tvSplashVersion.setText("版本号：" + versionName);
 
-        new Thread(mCheckVersionTask).start();
+        // 判断用户是否设置不需要自动更新
+        config = getSharedPreferences("config", MODE_PRIVATE);
+        boolean autoUpload = config.getBoolean("autoUpdate", true);
+
+        if (autoUpload) {
+            new Thread(mCheckVersionTask).start();
+        } else {
+            // 延迟进入主页面
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    SystemClock.sleep(2000);
+                    loadMainUI();
+                }
+            }).start();
+        }
     }
 
     private Handler mHandler = new Handler() {
@@ -205,7 +222,7 @@ public class SplashActivity extends Activity {
     };
 
     public void loadMainUI() {
-        MainActivity.start(SplashActivity.this);
+        HomeActivity.start(SplashActivity.this);
         finish();
     }
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item android:bottom="-2dp">
+                <shape>
+                    <stroke android:width="1px" android:color="@color/line_duck" />
+                    <solid android:color="@color/pressed" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item android:bottom="-2dp">
+                <shape>
+                    <stroke android:width="1px" android:color="@color/line_duck" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

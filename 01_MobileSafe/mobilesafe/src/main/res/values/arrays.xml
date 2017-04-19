@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="home_icon">
+        <item>@mipmap/sjfd</item>
+        <item>@mipmap/srlj</item>
+        <item>@mipmap/rjgj</item>
+        <item>@mipmap/jcgl</item>
+        <item>@mipmap/lltj</item>
+        <item>@mipmap/sjsd</item>
+        <item>@mipmap/xtjs</item>
+        <item>@mipmap/cygj</item>
+    </integer-array>
+
+    <string-array name="home_title" >
+        <item>手机防盗</item>
+        <item>骚扰拦截</item>
+        <item>软件管家</item>
+        <item>进程管理</item>
+        <item>流量统计</item>
+        <item>手机杀毒</item>
+        <item>系统加速</item>
+        <item>常用工具</item>
+    </string-array>
+
+    <string-array name="home_desc" >
+        <item>远程定位手机</item>
+        <item>全面拦截骚扰</item>
+        <item>管理您的软件</item>
+        <item>管理正在运行</item>
+        <item>流量一目了然</item>
+        <item>病毒无法藏身</item>
+        <item>系统快如火箭</item>
+        <item>常用工具大全</item>
+    </string-array>
+</resources>
