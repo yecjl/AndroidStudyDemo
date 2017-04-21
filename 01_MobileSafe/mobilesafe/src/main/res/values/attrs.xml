@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--ItemSetView-->
-    <declare-styleable name="ItemSetView">
-        <attr name="location"> <!--枚举，设置item 的背景-->
+    <declare-styleable name="SetItemView">
+        <attr name="showStyle"> <!--枚举，设置item 的背景-->
             <enum name="top" value="0" />
             <enum name="middle" value="1" />
             <enum name="bottom" value="2" />
+            <enum name="only_circle" value="3" />
+            <enum name="only_rectangle" value="4" />
         </attr>
         <attr name="itemContent" format="string|reference" /><!--设置item的内容-->
         <attr name="isSelected" format="boolean" /> <!--是否被选中-->
         <attr name="hasSelect" format="boolean" /><!--是否有悬着-->
+    </declare-styleable>
+
+    <!--PointView-->
+    <declare-styleable name="PointView">
+        <attr name="position" format="integer"/> <!--当前显示的point的位置 从0开始-->
+        <attr name="count" format="integer"/> <!--Point 的个数-->
     </declare-styleable>
 </resources>

@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.project.mobilesafe.R;
-import com.project.mobilesafe.ui.ItemSetView;
+import com.project.mobilesafe.ui.SetItemView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,15 +21,15 @@ import butterknife.ButterKnife;
 
 public class SettingActivity extends Activity {
     @Bind(R.id.isv_autoUpload)
-    ItemSetView isvAutoUpload;
+    SetItemView isvAutoUpload;
     @Bind(R.id.isv_intercept)
-    ItemSetView isvIntercept;
+    SetItemView isvIntercept;
     @Bind(R.id.isv_locationSet)
-    ItemSetView isvLocationSet;
+    SetItemView isvLocationSet;
     @Bind(R.id.isv_locationStyle)
-    ItemSetView isvLocationStyle;
+    SetItemView isvLocationStyle;
     @Bind(R.id.isv_watchDog)
-    ItemSetView isvWatchDog;
+    SetItemView isvWatchDog;
 
     private static final String TAG = "SettingActivity";
     private SharedPreferences config;
@@ -52,7 +52,7 @@ public class SettingActivity extends Activity {
 
     }
 
-    private ItemSetView.OnItemClickListener onItemClickListener = new ItemSetView.OnItemClickListener() {
+    private SetItemView.OnItemClickListener onItemClickListener = new SetItemView.OnItemClickListener() {
         @Override
         public void onClick(View v, boolean status) {
             Log.i(TAG, "id: " + v.getId() + ", status: " + status);

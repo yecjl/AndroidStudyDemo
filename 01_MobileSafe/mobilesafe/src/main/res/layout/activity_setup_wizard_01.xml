@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Text_Title"
+        android:text="1、欢迎使用手机防盗" />
+
+    <TextView
+        style="@style/Text_Content_Big"
+        android:text="您的手机防盗卫士：" />
+
+    <TextView
+        style="@style/Text_Notice"
+        android:text="SIM卡变更报警" />
+
+    <TextView
+        style="@style/Text_Notice"
+        android:text="GPS追踪" />
+
+    <TextView
+        style="@style/Text_Notice"
+        android:text="远程锁屏" />
+
+    <TextView
+        style="@style/Text_Notice"
+        android:text="远程销毁数据" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="12dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/setup1" />
+
+        <com.project.mobilesafe.ui.PointView
+            android:id="@+id/pv_point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:count="4"
+            app:position="0" />
+    </RelativeLayout>
+</LinearLayout>

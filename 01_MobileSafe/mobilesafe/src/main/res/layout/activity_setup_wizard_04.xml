@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Text_Title"
+        android:text="4、恭喜您，设置完成" />
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="24dp"
+        android:paddingLeft="12dp"
+        android:text="开始防盗保护"
+        android:textColor="@color/titleBlack"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="12dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/phone" />
+
+        <TextView
+            android:id="@+id/tv_setupFinish"
+            style="@style/Button_Positive_Blue"
+            android:layout_width="100dp"
+            android:layout_above="@+id/pv_point"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="12dp"
+            android:text="设置完成" />
+
+        <com.project.mobilesafe.ui.PointView
+            android:id="@+id/pv_point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="12dp"
+            app:count="4"
+            app:position="3" />
+
+    </RelativeLayout>
+</LinearLayout>

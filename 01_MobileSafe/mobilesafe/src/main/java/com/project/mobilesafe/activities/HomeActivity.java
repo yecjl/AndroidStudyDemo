@@ -3,16 +3,20 @@ package com.project.mobilesafe.activities;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.project.mobilesafe.R;
 import com.project.mobilesafe.activities.adapter.HomeAdapter;
@@ -35,11 +39,12 @@ public class HomeActivity extends Activity {
     ImageView ivIcon;
     @Bind(R.id.gv_home_content)
     GridView mGridView;
-
-    private final static String TAG = "HomeActivity";
     @Bind(R.id.iv_home_setting)
     ImageView ivHomeSetting;
+
+    private final static String TAG = "HomeActivity";
     private List<HomeContentInfo> mList;
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,7 @@ public class HomeActivity extends Activity {
         rotationY.start();
 
         mList = new ArrayList<>();
+        sp = getSharedPreferences("config", MODE_PRIVATE);
 
         // 通过TypedArray获取图片资源
         TypedArray ta = getResources().obtainTypedArray(R.array.home_icon);
@@ -84,13 +90,101 @@ public class HomeActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0: // 手机防盗的功能
-                        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
-                        builder.setView(R.layout.dialog_password);
-                        builder.show();
+                        // 1、判断用户是否设置过密码，并对应显示对话框
+                        showPwdDialog(checkIsSetupPwd());
                         break;
                 }
             }
+
         });
+    }
+
+    private void showPwdDialog(final boolean isSetupPwd) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = View.inflate(this, R.layout.dialog_password, null);
+        builder.setView(view);
+        final AlertDialog alertDialog = builder.create();
+
+        final TextView tvDialogTitle = (TextView) view.findViewById(R.id.tv_dialog_title);
+        final EditText etDialogPwd = (EditText) view.findViewById(R.id.et_dialog_pwd);
+        final EditText etDialogRepwd = (EditText) view.findViewById(R.id.et_dialog_repwd);
+        TextView tvPositive = (TextView) view.findViewById(R.id.tv_positive);
+        TextView tvNegative = (TextView) view.findViewById(R.id.tv_negative);
+
+        if (isSetupPwd) {
+            tvDialogTitle.setText("密码输入对话框");
+            etDialogRepwd.setVisibility(View.GONE);
+        } else {
+            tvDialogTitle.setText("密码设置对话框");
+        }
+
+        tvPositive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String pwd = etDialogPwd.getText().toString().trim();
+                if (isSetupPwd) {
+                    Log.i(TAG, "显示输入密码对话框");
+                    String savePwd = sp.getString("password", null);
+                    if (TextUtils.isEmpty(pwd)) {
+                        Toast.makeText(HomeActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+                    } else if (!pwd.equals(savePwd)) {
+                        Toast.makeText(HomeActivity.this, "请输入正确的密码", Toast.LENGTH_SHORT).show();
+                    } else {
+                        alertDialog.dismiss();
+                        rewardActivity();
+                    }
+                } else {
+                    Log.i(TAG, "显示设置密码对话框");
+                    String repwd = etDialogRepwd.getText().toString().trim();
+                    if (TextUtils.isEmpty(pwd) || TextUtils.isEmpty(repwd)) {
+                        Toast.makeText(HomeActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+                    } else if (!pwd.equals(repwd)) {
+                        Toast.makeText(HomeActivity.this, "两次输入的密码不一致", Toast.LENGTH_SHORT).show();
+                    } else {
+                        SharedPreferences.Editor edit = sp.edit();
+                        edit.putString("password", pwd);
+                        edit.commit();
+                        alertDialog.dismiss();
+                        rewardActivity();
+                    }
+                }
+            }
+        });
+
+        tvNegative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
+
+    }
+
+    /**
+     * 判断用户是否设置过密码
+     *
+     * @return
+     */
+    private boolean checkIsSetupPwd() {
+        String password = sp.getString("password", null);
+        return !TextUtils.isEmpty(password);
+    }
+
+    /**
+     * 打开新的Activity
+     */
+    private void rewardActivity() {
+        // 判断是否设置过设置向导
+        boolean isSetupWizard = sp.getBoolean("isSetupWizard", false);
+        if (isSetupWizard) {
+            Log.i(TAG, "用户设置过设置向导，进入手机防盗的界面");
+            LostFindActivity.start(this);
+        } else {
+            Log.i(TAG, "用户没有设置过设置向导，打开设置向导");
+            SetupWizardActivity01.start(this);
+        }
     }
 
     @OnClick(R.id.iv_home_setting)

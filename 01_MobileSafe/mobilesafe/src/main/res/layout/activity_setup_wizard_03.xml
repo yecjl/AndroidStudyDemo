@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Text_Title"
+        android:text="3、设置安全号码" />
+
+    <TextView
+        style="@style/Text_Content_Big"
+        android:text="如果SIM卡变化，报警短信会发送给安全号码"/>
+
+    <EditText
+        android:id="@+id/et_setup03_safeNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/dialog_title_default_icon"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:drawablePadding="5dp"
+        android:paddingTop="12dp"
+        android:paddingRight="12dp"
+        android:gravity="center_vertical"
+        android:paddingBottom="12dp"
+        android:hint="请输入或者选择一个安全号码"
+        android:textColor="@color/titleBlack"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_setup03_choose_safeNumber"
+        android:text="选择安全号码"
+        android:layout_margin="12dp"
+        style="@style/Button_Negative_White"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="12dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/phone" />
+
+        <com.project.mobilesafe.ui.PointView
+            android:id="@+id/pv_point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:count="4"
+            app:position="2" />
+    </RelativeLayout>
+</LinearLayout>

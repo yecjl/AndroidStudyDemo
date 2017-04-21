@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Text_Title"
+        android:text="手机防盗" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/pressed"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="安全号码"
+            android:textColor="@color/titleBlack"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="159"
+            android:textColor="@color/titleBlack"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <com.project.mobilesafe.ui.SetItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemContent="防盗保护是否开启"
+        app:showStyle="only_rectangle" />
+
+    <com.project.mobilesafe.ui.SetItemView
+        android:id="@+id/siv_openSetup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-1dp"
+        app:hasSelect="false"
+        app:itemContent="重新进入设置向导"
+        app:showStyle="only_rectangle" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/pressed"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:text="功能介绍"
+        android:textColor="@color/titleBlack"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_duck" />
+
+    <TextView
+        style="@style/Text_Notice"
+        android:text="GPS追踪  #*location*#" />
+
+    <TextView
+        style="@style/Text_Notice"
+        android:text="播放报警音乐  #*alarm*#" />
+    <TextView
+        style="@style/Text_Notice"
+        android:text="远程删除数据  #*wipedata*#" />
+    <TextView
+        style="@style/Text_Notice"
+        android:text="远程锁屏  #*lockscreen*#" />
+
+</LinearLayout>

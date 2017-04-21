@@ -15,4 +15,61 @@
         <item name="colorAccent">@color/colorBackground</item>
     </style>
 
+    <!--标题的字体样式-->
+    <style name="Text_Title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/colorBackground</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!--蓝色确定按钮-->
+    <style name="Button_Positive_Blue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/selector_positive</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <!--白色取消按钮-->
+    <style name="Button_Negative_White">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/selector_negative</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/titleBlack</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="Text_Content_Big">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:textColor">@color/titleBlack</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text_Notice">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawableLeft">@mipmap/dialog_title_default_icon</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textColor">@color/titleBlack</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

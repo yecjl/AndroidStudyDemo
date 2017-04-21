@@ -14,33 +14,33 @@ import com.project.mobilesafe.R;
  * Created by danke on 2017/4/19.
  */
 
-public class ItemSetView extends LinearLayout {
+public class SetItemView extends LinearLayout {
     private TextView tvItemContent;
     private SwitchImageView sivItemSet;
     private LinearLayout llItemContent;
     private OnItemClickListener mListener;
 
     public enum Location {
-        TOP, MIDDLE, BOTTOM
+        TOP, MIDDLE, BOTTOM, ONLY_CIRCLE, ONLY_RECTANGLE
     }
 
-    public ItemSetView(Context context) {
+    public SetItemView(Context context) {
         super(context);
         initView(context, null);
     }
 
-    public ItemSetView(Context context, AttributeSet attrs) {
+    public SetItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initView(context, attrs);
     }
 
-    public ItemSetView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SetItemView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView(context, attrs);
     }
 
     private void initView(final Context context, AttributeSet attrs) {
-        inflate(context, R.layout.item_set, this);
+        inflate(context, R.layout.view_set, this);
 
         llItemContent = (LinearLayout) findViewById(R.id.ll_item_content);
         tvItemContent = (TextView) findViewById(R.id.tv_item_content);
@@ -54,33 +54,37 @@ public class ItemSetView extends LinearLayout {
                     sivItemSet.pressed();
                 }
                 if (mListener != null) {
-                    mListener.onClick(ItemSetView.this, sivItemSet.isStatus());
+                    mListener.onClick(SetItemView.this, sivItemSet.isStatus());
                 }
             }
         });
 
         // 获取xml中的配置信息
         if (attrs != null) {
-            TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ItemSetView);
+            TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.SetItemView);
             for (int i = 0; i < ta.getIndexCount(); i++) {
                 int attr = ta.getIndex(i);
                 switch (attr) {
-                    case R.styleable.ItemSetView_location:
+                    case R.styleable.SetItemView_showStyle:
                         int location = ta.getInt(attr, 0);
                         if (location == Location.TOP.ordinal()) {
                             llItemContent.setBackgroundResource(R.drawable.selector_gray_border_radius10_top);
                         } else if (location == Location.MIDDLE.ordinal()) {
                             llItemContent.setBackgroundResource(R.drawable.selector_gray_border_middle);
-                        } else {
+                        } else if (location == Location.BOTTOM.ordinal()) {
                             llItemContent.setBackgroundResource(R.drawable.selector_gray_border_radius10_bottom);
+                        } else if (location == Location.ONLY_CIRCLE.ordinal()) {
+                            llItemContent.setBackgroundResource(R.drawable.selector_gray_border_only_circle);
+                        } else if (location == Location.ONLY_RECTANGLE.ordinal()) {
+                            llItemContent.setBackgroundResource(R.drawable.selector_gray_border_only_rectangle);
                         }
                         break;
-                    case R.styleable.ItemSetView_itemContent:
+                    case R.styleable.SetItemView_itemContent:
                         tvItemContent.setText(ta.getString(attr));
                         break;
-                    case R.styleable.ItemSetView_isSelected:
+                    case R.styleable.SetItemView_isSelected:
                         break;
-                    case R.styleable.ItemSetView_hasSelect:
+                    case R.styleable.SetItemView_hasSelect:
                         boolean hasSelect = ta.getBoolean(attr, true);
                         sivItemSet.setVisibility(hasSelect ? VISIBLE : INVISIBLE);
                         if (!hasSelect) {
@@ -94,6 +98,7 @@ public class ItemSetView extends LinearLayout {
 
     /**
      * 设置switch状态
+     *
      * @param status
      */
     public void setStatus(boolean status) {

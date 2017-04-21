@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_contact_title"
+        style="@style/Text_Title"
+        android:text="联系人" />
+
+    <ListView
+        android:id="@+id/lv_contact"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_contact_title" />
+
+    <include layout="@layout/item_loading" />
+
+    <include
+        layout="@layout/item_no_data"
+        android:visibility="gone" />
+
+</RelativeLayout>
