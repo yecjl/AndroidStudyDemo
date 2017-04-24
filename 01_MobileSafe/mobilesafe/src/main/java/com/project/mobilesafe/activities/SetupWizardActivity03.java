@@ -13,8 +13,6 @@ import com.project.mobilesafe.ui.PointView;
 import butterknife.Bind;
 import butterknife.OnClick;
 
-import static com.project.mobilesafe.R.mipmap.phone;
-
 /**
  * 功能：设置向导03界面
  * Created by danke on 2017/4/20.
@@ -53,7 +51,11 @@ public class SetupWizardActivity03 extends SetupWizardBaseActivity {
             }
         });
 
-        etSafeNumber.setText(sp.getString("safePhone", null));
+        String safePhone = sp.getString("safePhone", null);
+        etSafeNumber.setText(safePhone);
+        if (!TextUtils.isEmpty(safePhone)) {
+            etSafeNumber.setSelection(safePhone.length());
+        }
     }
 
     /**
@@ -93,6 +95,9 @@ public class SetupWizardActivity03 extends SetupWizardBaseActivity {
                 if (data != null) {
                     String safePhone = data.getStringExtra("phone");
                     etSafeNumber.setText(safePhone);
+                    if (!TextUtils.isEmpty(safePhone)) {
+                        etSafeNumber.setSelection(safePhone.length());
+                    }
                 }
             }
         }

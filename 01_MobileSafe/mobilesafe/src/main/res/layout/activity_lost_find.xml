@@ -25,15 +25,17 @@
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/tv_lose_find_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="159"
+            android:text="number"
             android:textColor="@color/titleBlack"
             android:textSize="14sp" />
     </LinearLayout>
 
     <com.project.mobilesafe.ui.SetItemView
+        android:id="@+id/siv_lost_find_isOpen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:itemContent="防盗保护是否开启"
@@ -72,9 +74,11 @@
     <TextView
         style="@style/Text_Notice"
         android:text="播放报警音乐  #*alarm*#" />
+
     <TextView
         style="@style/Text_Notice"
         android:text="远程删除数据  #*wipedata*#" />
+
     <TextView
         style="@style/Text_Notice"
         android:text="远程锁屏  #*lockscreen*#" />

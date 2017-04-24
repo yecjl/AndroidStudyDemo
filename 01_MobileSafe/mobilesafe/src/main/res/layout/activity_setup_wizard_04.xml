@@ -10,6 +10,7 @@
         android:text="4、恭喜您，设置完成" />
 
     <CheckBox
+        android:id="@+id/cb_isOpenProtect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
@@ -51,4 +52,10 @@
             app:position="3" />
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Protect" />
 </LinearLayout>

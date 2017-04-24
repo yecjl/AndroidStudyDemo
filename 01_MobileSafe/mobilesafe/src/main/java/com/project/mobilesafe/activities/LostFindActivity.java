@@ -3,8 +3,10 @@ package com.project.mobilesafe.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.project.mobilesafe.R;
 import com.project.mobilesafe.ui.SetItemView;
@@ -21,6 +23,11 @@ public class LostFindActivity extends Activity {
 
     @Bind(R.id.siv_openSetup)
     SetItemView sivOpenSetup;
+    @Bind(R.id.tv_lose_find_number)
+    TextView tvLoseFindNumber;
+    @Bind(R.id.siv_lost_find_isOpen)
+    SetItemView sivLostFindIsOpen;
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,21 @@ public class LostFindActivity extends Activity {
         ButterKnife.bind(this);
 
         sivOpenSetup.setListener(mClickListener);
+
+        sp = getSharedPreferences("config", MODE_PRIVATE);
+        String safePhone = sp.getString("safePhone", null);
+        boolean isOpenProtect = sp.getBoolean("isOpenProtect", false);
+        tvLoseFindNumber.setText(safePhone);
+        sivLostFindIsOpen.setStatus(isOpenProtect);
+
+        sivLostFindIsOpen.setListener(new SetItemView.OnItemClickListener() {
+            @Override
+            public void onClick(View v, boolean status) {
+                SharedPreferences.Editor edit = sp.edit();
+                edit.putBoolean("isOpenProtect", status);
+                edit.commit();
+            }
+        });
     }
 
     private SetItemView.OnItemClickListener mClickListener = new SetItemView.OnItemClickListener() {

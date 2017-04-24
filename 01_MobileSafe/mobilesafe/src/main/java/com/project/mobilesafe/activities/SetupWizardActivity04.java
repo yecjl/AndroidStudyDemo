@@ -1,21 +1,15 @@
 package com.project.mobilesafe.activities;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.view.MotionEvent;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.project.mobilesafe.R;
 import com.project.mobilesafe.ui.PointView;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * 功能：设置向导03界面
@@ -28,6 +22,8 @@ public class SetupWizardActivity04 extends SetupWizardBaseActivity {
     PointView pvPoint;
     @Bind(R.id.tv_setupFinish)
     TextView tvSetupFinish;
+    @Bind(R.id.cb_isOpenProtect)
+    CheckBox cbIsOpenProtect;
 
     @Override
     public int setLayoutResId() {
@@ -40,6 +36,17 @@ public class SetupWizardActivity04 extends SetupWizardBaseActivity {
             @Override
             public void onPointClick(int position, int count) {
                 prePage();
+            }
+        });
+
+        cbIsOpenProtect.setChecked(sp.getBoolean("isOpenProtect", false));
+
+        cbIsOpenProtect.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                SharedPreferences.Editor edit = sp.edit();
+                edit.putBoolean("isOpenProtect", isChecked);
+                edit.commit();
             }
         });
     }
