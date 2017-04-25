@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/01_MobileSafe.iml" filepath="$PROJECT_DIR$/01_MobileSafe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gps_demo/gps_demo.iml" filepath="$PROJECT_DIR$/gps_demo/gps_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/mobilesafe/mobilesafe.iml" filepath="$PROJECT_DIR$/mobilesafe/mobilesafe.iml" />
     </modules>
   </component>

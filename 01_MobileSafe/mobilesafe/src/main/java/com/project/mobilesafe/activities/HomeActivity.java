@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.telephony.SmsManager;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -92,6 +94,8 @@ public class HomeActivity extends Activity {
                     case 0: // 手机防盗的功能
                         // 1、判断用户是否设置过密码，并对应显示对话框
                         showPwdDialog(checkIsSetupPwd());
+                        break;
+                    case 1:
                         break;
                 }
             }
