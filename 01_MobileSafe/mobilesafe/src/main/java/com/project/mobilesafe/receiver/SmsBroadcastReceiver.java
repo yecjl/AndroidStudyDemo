@@ -1,5 +1,6 @@
 package com.project.mobilesafe.receiver;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.util.Log;
 
 import com.project.mobilesafe.R;
 import com.project.mobilesafe.services.LocationService;
+
 
 /**
  * 功能：短信接受者
@@ -44,10 +46,14 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                     break;
                 case "#*wipedata*#":
                     Log.i(TAG, "远程删除数据");
+                    DevicePolicyManager dpmWipe= (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+                    dpmWipe.wipeData(DevicePolicyManager.WIPE_EXTERNAL_STORAGE);
                     abortBroadcast();
                     break;
                 case "#*lockscreen*#":
                     Log.i(TAG, "远程锁屏");
+                    DevicePolicyManager dpmLock = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+                    dpmLock.lockNow();
                     abortBroadcast();
                     break;
             }

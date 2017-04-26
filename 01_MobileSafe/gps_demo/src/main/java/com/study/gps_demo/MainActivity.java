@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.tv_location)
     TextView tvLocation;
     private LocationManager lm;
+    private InputStream is;
+    private ModifyOffset modifyOffset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,19 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "location： " + latitude + "," + longitude);
         tvLocation.setText("【location】\n维度：" + latitude + "\n经度：" + longitude);
 
+        try {
+            is = getAssets().open("axisoffset.dat");
+            modifyOffset = ModifyOffset.getInstance(is);
+            PointDouble pointDouble = modifyOffset.s2c(new PointDouble(longitude, latitude));
+
+            Log.i(TAG, "location chinese： " + pointDouble.y + "," + pointDouble.x);
+            tvLocation.setText(tvLocation.getText() + "\n【location chinese】\n维度：" + pointDouble.y + "\n经度：" + pointDouble.x);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         lm.requestLocationUpdates("gps", 0, 0, mLocationListener);
     }
 
@@ -52,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
             double longitude = location.getLongitude(); // 经度
             Log.i(TAG, "location： " + latitude + "," + longitude);
             tvLocation.setText("【location】\n维度：" + latitude + "\n经度：" + longitude);
+
+            PointDouble pointDouble = modifyOffset.s2c(new PointDouble(longitude, latitude));
+
+            Log.i(TAG, "location chinese： " + pointDouble.y + "," + pointDouble.x);
+            tvLocation.setText(tvLocation.getText() + "【location chinese】\n维度：" + pointDouble.y + "\n经度：" + pointDouble.x);
         }
 
         @Override
@@ -78,5 +98,10 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         lm.removeUpdates(mLocationListener);
         mLocationListener = null;
+        try {
+            is.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

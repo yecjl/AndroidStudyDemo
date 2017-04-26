@@ -23,7 +23,9 @@ import android.widget.Toast;
 import com.project.mobilesafe.R;
 import com.project.mobilesafe.activities.adapter.HomeAdapter;
 import com.project.mobilesafe.bean.HomeContentInfo;
+import com.project.mobilesafe.utils.Md5Utils;
 
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,6 +98,7 @@ public class HomeActivity extends Activity {
                         showPwdDialog(checkIsSetupPwd());
                         break;
                     case 1:
+                        BlackListActivity.start(HomeActivity.this);
                         break;
                 }
             }
@@ -126,12 +129,13 @@ public class HomeActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String pwd = etDialogPwd.getText().toString().trim();
+                String pwdMd5 = Md5Utils.encode(pwd);
                 if (isSetupPwd) {
                     Log.i(TAG, "显示输入密码对话框");
                     String savePwd = sp.getString("password", null);
                     if (TextUtils.isEmpty(pwd)) {
                         Toast.makeText(HomeActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
-                    } else if (!pwd.equals(savePwd)) {
+                    } else if (!pwdMd5.equals(savePwd)) {
                         Toast.makeText(HomeActivity.this, "请输入正确的密码", Toast.LENGTH_SHORT).show();
                     } else {
                         alertDialog.dismiss();
@@ -146,7 +150,7 @@ public class HomeActivity extends Activity {
                         Toast.makeText(HomeActivity.this, "两次输入的密码不一致", Toast.LENGTH_SHORT).show();
                     } else {
                         SharedPreferences.Editor edit = sp.edit();
-                        edit.putString("password", pwd);
+                        edit.putString("password", pwdMd5);
                         edit.commit();
                         alertDialog.dismiss();
                         rewardActivity();
