@@ -41,7 +41,7 @@ public class BlackListActivity extends Activity {
 
     }
 
-    public static void start(Context context) {
-        context.startActivity(new Intent(context, BlackListActivity.class));
+    public static void start(Context context, int requestCode) {
+        ((Activity)context).startActivityForResult(new Intent(context, BlackListActivity.class), requestCode);
     }
 }

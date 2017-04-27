@@ -98,7 +98,7 @@ public class HomeActivity extends Activity {
                         showPwdDialog(checkIsSetupPwd());
                         break;
                     case 1:
-                        BlackListActivity.start(HomeActivity.this);
+                        BlackListActivity.start(HomeActivity.this, 0);
                         break;
                 }
             }
