@@ -3,6 +3,7 @@ package com.project.mobilesafe.activities.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -53,7 +54,7 @@ public class HomeAdapter extends BaseAdapter {
             view = convertView;
         } else {
             view = View.inflate(mContext, R.layout.item_home, null);
-            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mHeight / (mList.size() / 2));
+            AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mHeight / (mList.size() / 2));
             view.setLayoutParams(layoutParams);
         }
 

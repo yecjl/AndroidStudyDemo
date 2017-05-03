@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/tv_positive"
+        style="@style/Button_Positive_Blue"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:text="确定" />
+
+    <View
+        android:layout_width="20dp"
+        android:layout_height="35dp" />
+
+    <TextView
+        android:id="@+id/tv_negative"
+        style="@style/Button_Negative_White"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:text="取消" />
+</LinearLayout>

@@ -30,14 +30,18 @@ public class BlackListDao {
      * @param blackContact
      * @return 添加到哪一行
      */
-    public long insert(BlackContact blackContact) {
+    public boolean insert(BlackContact blackContact) {
         SQLiteDatabase db = mHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("phone", blackContact.getPhone());
         values.put("mode", blackContact.getMode());
         long result = db.insert("blacklist", null, values);
         db.close();
-        return result;
+        if (result != -1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

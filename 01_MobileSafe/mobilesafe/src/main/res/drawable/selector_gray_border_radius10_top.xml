@@ -7,6 +7,7 @@
                     <stroke android:width="1px" android:color="@color/line_duck" />
                     <corners android:topLeftRadius="10dp" android:topRightRadius="10dp" />
                     <solid android:color="@color/pressed" />
+                    <padding android:bottom="12dp" android:left="12dp" android:right="12dp" android:top="12dp" />
                 </shape>
             </item>
         </layer-list>
@@ -17,6 +18,7 @@
                 <shape>
                     <stroke android:width="1px" android:color="@color/line_duck" />
                     <corners android:topLeftRadius="10dp" android:topRightRadius="10dp" />
+                    <padding android:bottom="12dp" android:left="12dp" android:right="12dp" android:top="12dp" />
                 </shape>
             </item>
         </layer-list>
