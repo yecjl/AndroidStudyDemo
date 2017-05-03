@@ -1,4 +1,4 @@
-package com.project.mobilesafe.bean;
+package com.project.mobilesafe.beans;
 
 import java.io.Serializable;
 

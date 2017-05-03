@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.mobilesafe.R;
-import com.project.mobilesafe.bean.BlackContact;
+import com.project.mobilesafe.beans.BlackContact;
 import com.project.mobilesafe.db.dao.BlackListDao;
 
 import butterknife.Bind;
@@ -90,7 +90,9 @@ public class AddBlackContactActivity extends Activity {
                 boolean result = dao.insert(blackContact);
                 if (result) {
                     Toast.makeText(this, "黑名单添加成功", Toast.LENGTH_SHORT).show();
-                    setResult(RESULT_OK);
+                    Intent intent = new Intent();
+                    intent.putExtra("blackContact", blackContact);
+                    setResult(RESULT_OK, intent);
                     finish();
                 } else {
                     Toast.makeText(this, "黑名单添加失败", Toast.LENGTH_SHORT).show();

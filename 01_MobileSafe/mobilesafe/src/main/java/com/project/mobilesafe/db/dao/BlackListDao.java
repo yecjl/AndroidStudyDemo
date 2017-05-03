@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.project.mobilesafe.bean.BlackContact;
+import com.project.mobilesafe.beans.BlackContact;
 import com.project.mobilesafe.db.BlackListSQLiteOpenHelper;
 
 import java.util.ArrayList;

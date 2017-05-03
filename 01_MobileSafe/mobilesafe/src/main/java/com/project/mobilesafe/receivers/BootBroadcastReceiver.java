@@ -1,4 +1,4 @@
-package com.project.mobilesafe.receiver;
+package com.project.mobilesafe.receivers;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

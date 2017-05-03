@@ -21,7 +21,7 @@ import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.project.mobilesafe.R;
-import com.project.mobilesafe.bean.UploadInfo;
+import com.project.mobilesafe.beans.UploadInfo;
 import com.project.mobilesafe.constant.Constant;
 import com.project.mobilesafe.utils.ErrorCodeUtils;
 import com.project.mobilesafe.utils.PackageUtils;

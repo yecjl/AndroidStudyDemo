@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.project.mobilesafe.R;
 import com.project.mobilesafe.activities.adapter.BlackListAdapter;
-import com.project.mobilesafe.bean.BlackContact;
+import com.project.mobilesafe.beans.BlackContact;
 import com.project.mobilesafe.db.dao.BlackListDao;
 
 import java.util.List;
@@ -34,6 +35,8 @@ public class BlackListActivity extends Activity {
     ListView mListView;
     @Bind(R.id.iv_blacklist_empty)
     ImageView ivEmpty;
+    @Bind(R.id.ll_loading)
+    LinearLayout llLoading;
     private BlackListDao dao;
     private List<BlackContact> mList;
     private BlackListAdapter mAdapter;
@@ -46,12 +49,13 @@ public class BlackListActivity extends Activity {
 
         dao = new BlackListDao(this);
         mAdapter = new BlackListAdapter(this, dao, ivEmpty);
-        mListView.setAdapter(mAdapter);
 
         findAll();
     }
 
     public void findAll() {
+        llLoading.setVisibility(View.VISIBLE);
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -61,6 +65,8 @@ public class BlackListActivity extends Activity {
                     @Override
                     public void run() {
                         mAdapter.setList(mList);
+                        mListView.setAdapter(mAdapter);
+                        llLoading.setVisibility(View.GONE);
                     }
                 });
             }
@@ -75,7 +81,10 @@ public class BlackListActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            findAll();
+            if (data != null) {
+                BlackContact blackContact = (BlackContact) data.getSerializableExtra("blackContact");
+                mAdapter.add(blackContact);
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

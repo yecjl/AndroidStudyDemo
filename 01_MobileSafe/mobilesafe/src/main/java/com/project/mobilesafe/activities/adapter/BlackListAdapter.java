@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.mobilesafe.R;
-import com.project.mobilesafe.bean.BlackContact;
+import com.project.mobilesafe.beans.BlackContact;
 import com.project.mobilesafe.db.dao.BlackListDao;
 
 import java.util.List;
@@ -34,8 +34,21 @@ public class BlackListAdapter extends BaseAdapter {
         this.mIvEmpty = ivEmpty;
     }
 
+    /**
+     * 设置集合
+     * @param list
+     */
     public void setList(List<BlackContact> list) {
         this.mList = list;
+        notifyDataSetChanged();
+    }
+
+    /**
+     * 添加集合数据
+     * @param blackContact
+     */
+    public void add(BlackContact blackContact) {
+        mList.add(blackContact);
         notifyDataSetChanged();
     }
 

@@ -1,11 +1,13 @@
-package com.project.mobilesafe.bean;
+package com.project.mobilesafe.beans;
+
+import java.io.Serializable;
 
 /**
  * 功能：黑名单联系人
  * Created by danke on 2017/4/27.
  */
 
-public class BlackContact {
+public class BlackContact implements Serializable {
     private String phone;
     private String mode; // 1、电话拦截 2、短信拦截 3、全部拦截
 

@@ -1,4 +1,4 @@
-package com.project.mobilesafe.bean;
+package com.project.mobilesafe.beans;
 
 /**
  * 功能：主界面的内容显示条目

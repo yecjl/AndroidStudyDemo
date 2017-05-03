@@ -1,4 +1,4 @@
-package com.project.mobilesafe.bean;
+package com.project.mobilesafe.beans;
 
 /**
  * 功能：联系人的类型

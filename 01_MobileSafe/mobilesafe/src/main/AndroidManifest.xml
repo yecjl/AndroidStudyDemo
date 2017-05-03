@@ -44,19 +44,19 @@
 
         <!--receiver begin-->
         <!--手机重新开机启动完成的广播接受者-->
-        <receiver android:name=".receiver.BootBroadcastReceiver">
+        <receiver android:name=".receivers.BootBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
         <!--短信到来的广播接受者-->
-        <receiver android:name=".receiver.SmsBroadcastReceiver">
+        <receiver android:name=".receivers.SmsBroadcastReceiver">
             <intent-filter android:priority="1000">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
         <!--超级管理员设备管理器的广播接受者-->
-        <receiver android:name=".receiver.MyDeviceAdminReceiver"
+        <receiver android:name=".receivers.MyDeviceAdminReceiver"
             android:label="@string/device_admin"
             android:description="@string/device_admin_description"
             android:permission="android.permission.BIND_DEVICE_ADMIN">

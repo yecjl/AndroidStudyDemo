@@ -16,7 +16,7 @@ import android.widget.ListView;
 
 import com.project.mobilesafe.R;
 import com.project.mobilesafe.activities.adapter.ContactAdapter;
-import com.project.mobilesafe.bean.ContactInfo;
+import com.project.mobilesafe.beans.ContactInfo;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.project.mobilesafe.R;
-import com.project.mobilesafe.bean.ContactInfo;
+import com.project.mobilesafe.beans.ContactInfo;
 
 import java.util.List;
 

@@ -5,7 +5,7 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
-import com.project.mobilesafe.bean.BlackContact;
+import com.project.mobilesafe.beans.BlackContact;
 import com.project.mobilesafe.db.dao.BlackListDao;
 
 import org.junit.Test;
@@ -29,11 +29,13 @@ public class BlackListTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
         BlackListDao blackListDao = new BlackListDao(appContext);
-        BlackContact blackContact = new BlackContact();
-        blackContact.setPhone("159");
-        blackContact.setMode("1");
-        long result = blackListDao.insert(blackContact);
-        Log.i(TAG, "insert: " + result);
+        for (int i = 1000; i < 10000; i++) {
+            BlackContact blackContact = new BlackContact();
+            blackContact.setPhone("159" + i);
+            blackContact.setMode("2");
+            boolean result = blackListDao.insert(blackContact);
+            Log.i(TAG, "insert: " + result);
+        }
     }
 
     @Test

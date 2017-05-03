@@ -8,8 +8,6 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.telephony.SmsManager;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -22,10 +20,9 @@ import android.widget.Toast;
 
 import com.project.mobilesafe.R;
 import com.project.mobilesafe.activities.adapter.HomeAdapter;
-import com.project.mobilesafe.bean.HomeContentInfo;
+import com.project.mobilesafe.beans.HomeContentInfo;
 import com.project.mobilesafe.utils.Md5Utils;
 
-import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.project.mobilesafe.R;
+import com.project.mobilesafe.services.BlackContactInterceptService;
 import com.project.mobilesafe.ui.SetItemView;
 
 import butterknife.Bind;
@@ -57,18 +58,24 @@ public class SettingActivity extends Activity {
         public void onClick(View v, boolean status) {
             Log.i(TAG, "id: " + v.getId() + ", status: " + status);
             switch (v.getId()) {
-                case R.id.isv_autoUpload:
+                case R.id.isv_autoUpload: // 自动更新设置
                     SharedPreferences.Editor edit = config.edit();
                     edit.putBoolean("autoUpdate", status);
                     edit.commit();
                     break;
-                case R.id.isv_intercept:
+                case R.id.isv_intercept: // 骚扰拦截设置
+                    Intent service = new Intent(SettingActivity.this, BlackContactInterceptService.class);
+                    if (status) {
+                        startService(service);
+                    } else {
+                        stopService(service);
+                    }
                     break;
-                case R.id.isv_locationSet:
+                case R.id.isv_locationSet: // 归属地显示设置
                     break;
-                case R.id.isv_locationStyle:
+                case R.id.isv_locationStyle: // 归属地显示风格
                     break;
-                case R.id.isv_watchDog:
+                case R.id.isv_watchDog: // 程序锁看门狗服务
                     break;
             }
         }
