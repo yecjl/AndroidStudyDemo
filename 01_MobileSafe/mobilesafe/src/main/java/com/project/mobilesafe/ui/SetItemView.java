@@ -82,7 +82,8 @@ public class SetItemView extends LinearLayout {
                     case R.styleable.SetItemView_itemContent:
                         tvItemContent.setText(ta.getString(attr));
                         break;
-                    case R.styleable.SetItemView_isSelected:
+                    case R.styleable.SetItemView_setStatus:
+                        setStatus(ta.getBoolean(attr, false));
                         break;
                     case R.styleable.SetItemView_hasSelect:
                         boolean hasSelect = ta.getBoolean(attr, true);

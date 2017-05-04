@@ -7,54 +7,46 @@
 
     <TextView
         style="@style/Text_Title"
-        android:text="设置界面" />
+        android:text="常用工具" />
 
     <com.project.mobilesafe.ui.SetItemView
-        android:id="@+id/isv_autoUpload"
+        android:id="@+id/isv_phone_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginTop="12dp"
-        app:itemContent="自动更新设置"
+        app:hasSelect="false"
+        app:itemContent="号码归属地查询"
         app:showStyle="top" />
 
     <com.project.mobilesafe.ui.SetItemView
-        android:id="@+id/isv_intercept"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        app:itemContent="骚扰拦截设置"
-        app:setStatus="false"
-        app:showStyle="middle" />
-
-    <com.project.mobilesafe.ui.SetItemView
-        android:id="@+id/isv_locationSet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        app:itemContent="归属地显示设置"
-        app:showStyle="middle" />
-
-    <com.project.mobilesafe.ui.SetItemView
-        android:id="@+id/isv_locationStyle"
+        android:id="@+id/isv_sms_backup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         app:hasSelect="false"
-        app:itemContent="归属地显示风格"
+        app:itemContent="短信备份"
         app:showStyle="middle" />
 
     <com.project.mobilesafe.ui.SetItemView
-        android:id="@+id/isv_watchDog"
+        android:id="@+id/isv_sms_restore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
-        app:itemContent="程序锁看门狗服务"
-        app:showStyle="bottom" />
+        app:hasSelect="false"
+        app:itemContent="短信还原"
+        app:showStyle="middle" />
 
+    <com.project.mobilesafe.ui.SetItemView
+        android:id="@+id/isv_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        app:hasSelect="false"
+        app:itemContent="程序锁"
+        app:showStyle="bottom" />
 </LinearLayout>

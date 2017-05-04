@@ -52,6 +52,18 @@ public class BlackListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    /**
+     * 更新集合数据
+     * @param blackContact
+     * @param position
+     */
+    public void update(BlackContact blackContact, int position) {
+        BlackContact original = mList.get(position);
+        original.setMode(blackContact.getMode());
+        original.setPhone(blackContact.getPhone());
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() {
         // 根据mList中是否有数据来显示和隐藏 “空数据提醒”的图片

@@ -21,11 +21,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 功能：添加黑名单
+ * 功能：添加或者修改黑名单
  * Created by danke on 2017/5/2.
  */
 
-public class AddBlackContactActivity extends Activity {
+public class BlackContactActivity extends Activity {
     @Bind(R.id.et_add_number)
     EditText etNumber;
     @Bind(R.id.rb_add_phone)
@@ -40,7 +40,13 @@ public class AddBlackContactActivity extends Activity {
     TextView tvPositive;
     @Bind(R.id.tv_negative)
     TextView tvNegative;
+    @Bind(R.id.tv_title)
+    TextView tvTitle;
     private BlackListDao dao;
+
+    private final static int ADD_BLACK_CONTACT = 0; // 添加黑名单
+    private final static int UPDATE_BLACK_CONTACT = 1; // 修改黑名单
+    private int currentMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,30 @@ public class AddBlackContactActivity extends Activity {
         ButterKnife.bind(this);
 
         dao = new BlackListDao(this);
+
+        BlackContact blackContact = (BlackContact) getIntent().getSerializableExtra("blackContact");
+        if (blackContact != null) {
+            currentMode = UPDATE_BLACK_CONTACT;
+            tvTitle.setText("修改黑名单");
+            String phone = blackContact.getPhone();
+            etNumber.setText(phone);
+            etNumber.setSelection(phone.length());
+            String checkType = blackContact.getMode();
+            switch (checkType) {
+                case "1":
+                    rbPhone.setChecked(true);
+                    break;
+                case "2":
+                    rbSms.setChecked(true);
+                    break;
+                case "3":
+                    rbAll.setChecked(true);
+                    break;
+            }
+        } else {
+            currentMode = ADD_BLACK_CONTACT;
+            tvTitle.setText("添加黑名单");
+        }
     }
 
     @OnClick({R.id.tv_positive, R.id.tv_negative})
@@ -64,7 +94,7 @@ public class AddBlackContactActivity extends Activity {
 
                 // 判断黑名单号码是否重复
                 BlackContact blackContact = dao.findBlackContact(number);
-                if (blackContact != null) {
+                if (blackContact != null && currentMode == ADD_BLACK_CONTACT) {
                     Toast.makeText(this, "黑名单号码已经存在", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -89,13 +119,21 @@ public class AddBlackContactActivity extends Activity {
 
                 boolean result = dao.insert(blackContact);
                 if (result) {
-                    Toast.makeText(this, "黑名单添加成功", Toast.LENGTH_SHORT).show();
+                    if (currentMode == ADD_BLACK_CONTACT) {
+                        Toast.makeText(this, "黑名单添加成功", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "黑名单修改成功", Toast.LENGTH_SHORT).show();
+                    }
                     Intent intent = new Intent();
                     intent.putExtra("blackContact", blackContact);
                     setResult(RESULT_OK, intent);
                     finish();
                 } else {
-                    Toast.makeText(this, "黑名单添加失败", Toast.LENGTH_SHORT).show();
+                    if (currentMode == ADD_BLACK_CONTACT) {
+                        Toast.makeText(this, "黑名单添加失败", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "黑名单修改失败", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 break;
             case R.id.tv_negative: // 取消
@@ -105,6 +143,12 @@ public class AddBlackContactActivity extends Activity {
     }
 
     public static void start(Context context, int requestCode) {
-        ((Activity) context).startActivityForResult(new Intent(context, AddBlackContactActivity.class), requestCode);
+        start(context, null, requestCode);
+    }
+
+    public static void start(Context context, BlackContact blackContact, int requestCode) {
+        Intent intent = new Intent(context, BlackContactActivity.class);
+        intent.putExtra("blackContact", blackContact);
+        ((Activity) context).startActivityForResult(intent, requestCode);
     }
 }

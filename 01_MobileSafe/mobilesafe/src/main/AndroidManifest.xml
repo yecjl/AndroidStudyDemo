@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
 
     <application
         android:allowBackup="true"
@@ -36,10 +38,12 @@
         <activity android:name=".activities.SetupWizardActivity04" />
         <activity android:name=".activities.ContactActivity" />
         <activity android:name=".activities.BlackListActivity" />
-        <activity android:name=".activities.AddBlackContactActivity" />
+        <activity android:name=".activities.BlackContactActivity" />
+        <activity android:name=".activities.CommonUtilsActivity" />
 
         <!--service begin-->
-        <service android:name=".services.LocationService" />
+        <service android:name=".services.LocationService" /> <!--位置的服务-->
+        <service android:name=".services.BlackContactInterceptService" /> <!--骚然拦截的服务-->
         <!--service end-->
 
         <!--receiver begin-->

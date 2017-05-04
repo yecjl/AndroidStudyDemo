@@ -9,7 +9,11 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 
 import com.project.mobilesafe.R;
+import com.project.mobilesafe.beans.BlackContact;
+import com.project.mobilesafe.db.dao.BlackListDao;
+import com.project.mobilesafe.services.BlackContactInterceptService;
 import com.project.mobilesafe.services.LocationService;
+import com.project.mobilesafe.utils.ServiceStatusUtils;
 
 
 /**
@@ -25,6 +29,8 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         Object[] puds = (Object[]) intent.getExtras().get("pdus");
         for (Object pud : puds) {
             SmsMessage sm = SmsMessage.createFromPdu((byte[]) pud);
+
+            // 判断短信内容，做出相应的操作
             String messageBody = sm.getMessageBody();
             switch (messageBody) {
                 case "#*location*#":
@@ -46,7 +52,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                     break;
                 case "#*wipedata*#":
                     Log.i(TAG, "远程删除数据");
-                    DevicePolicyManager dpmWipe= (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+                    DevicePolicyManager dpmWipe = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
                     dpmWipe.wipeData(DevicePolicyManager.WIPE_EXTERNAL_STORAGE);
                     abortBroadcast();
                     break;

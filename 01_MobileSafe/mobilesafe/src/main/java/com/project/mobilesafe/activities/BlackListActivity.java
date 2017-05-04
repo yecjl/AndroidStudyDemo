@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -41,6 +42,10 @@ public class BlackListActivity extends Activity {
     private List<BlackContact> mList;
     private BlackListAdapter mAdapter;
 
+    private final static int REQUEST_ADD_BLACK_CONTACT = 0;
+    private final static int REQUEST_UPDATE_BLACK_CONTACT = 1;
+    private int currentModifyPosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +56,17 @@ public class BlackListActivity extends Activity {
         mAdapter = new BlackListAdapter(this, dao, ivEmpty);
 
         findAll();
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (mList != null && mList.size() > 0) {
+                    currentModifyPosition = position;
+                    BlackContact blackContact = mList.get(position);
+                    BlackContactActivity.start(BlackListActivity.this, blackContact, REQUEST_UPDATE_BLACK_CONTACT);
+                }
+            }
+        });
     }
 
     public void findAll() {
@@ -75,7 +91,7 @@ public class BlackListActivity extends Activity {
 
     @OnClick(R.id.iv_blacklist_add)
     public void addBlackContact() {
-        AddBlackContactActivity.start(this, 0);
+        BlackContactActivity.start(this, REQUEST_ADD_BLACK_CONTACT);
     }
 
     @Override
@@ -83,7 +99,14 @@ public class BlackListActivity extends Activity {
         if (resultCode == RESULT_OK) {
             if (data != null) {
                 BlackContact blackContact = (BlackContact) data.getSerializableExtra("blackContact");
-                mAdapter.add(blackContact);
+                switch (requestCode) {
+                    case REQUEST_ADD_BLACK_CONTACT:
+                        mAdapter.add(blackContact);
+                        break;
+                    case REQUEST_UPDATE_BLACK_CONTACT:
+                        mAdapter.update(blackContact, currentModifyPosition);
+                        break;
+                }
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

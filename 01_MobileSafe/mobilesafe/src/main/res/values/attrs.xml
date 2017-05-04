@@ -10,7 +10,7 @@
             <enum name="only_rectangle" value="4" />
         </attr>
         <attr name="itemContent" format="string|reference" /><!--设置item的内容-->
-        <attr name="isSelected" format="boolean" /> <!--是否被选中-->
+        <attr name="setStatus" format="boolean" /> <!--是否被选中-->
         <attr name="hasSelect" format="boolean" /><!--是否有悬着-->
     </declare-styleable>
 

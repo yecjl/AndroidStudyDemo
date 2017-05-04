@@ -1,16 +1,29 @@
 package com.project.mobilesafe.activities;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.PendingIntent;
+import android.app.Service;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.os.RemoteException;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 
+import com.android.internal.telephony.ITelephony;
 import com.project.mobilesafe.R;
 import com.project.mobilesafe.services.BlackContactInterceptService;
 import com.project.mobilesafe.ui.SetItemView;
+import com.project.mobilesafe.utils.ServiceStatusUtils;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -50,7 +63,13 @@ public class SettingActivity extends Activity {
         // 将数据回显
         config = getSharedPreferences("config", MODE_PRIVATE);
         isvAutoUpload.setStatus(config.getBoolean("autoUpdate", true));
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 判断服务是否开启，设置按钮状态
+        isvIntercept.setStatus(ServiceStatusUtils.isServiceRunning(this, BlackContactInterceptService.class));
     }
 
     private SetItemView.OnItemClickListener onItemClickListener = new SetItemView.OnItemClickListener() {
