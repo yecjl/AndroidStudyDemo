@@ -75,6 +75,8 @@ public class SplashActivity extends Activity {
                 }
             }).start();
         }
+
+        initAssetData();
     }
 
     private Handler mHandler = new Handler() {
@@ -220,6 +222,21 @@ public class SplashActivity extends Activity {
             }
         }
     };
+
+    /**
+     * 初始化assets下的数据库
+     */
+    private void initAssetData() {
+        File file = new File(getFilesDir(), "address.db");
+        if (!file.exists() || file.length() == 0) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    StreamUtils.readAssets(SplashActivity.this, "address.db");
+                }
+            }).start();
+        }
+    }
 
     public void loadMainUI() {
         HomeActivity.start(SplashActivity.this);

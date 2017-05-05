@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
 
     <application
         android:allowBackup="true"
@@ -40,10 +41,12 @@
         <activity android:name=".activities.BlackListActivity" />
         <activity android:name=".activities.BlackContactActivity" />
         <activity android:name=".activities.CommonUtilsActivity" />
+        <activity android:name=".activities.SearchPhoneLocationActivity" />
 
         <!--service begin-->
         <service android:name=".services.LocationService" /> <!--位置的服务-->
         <service android:name=".services.BlackContactInterceptService" /> <!--骚然拦截的服务-->
+        <service android:name=".services.PhoneLocationService" /> <!--电话归属地服务-->
         <!--service end-->
 
         <!--receiver begin-->

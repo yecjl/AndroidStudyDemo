@@ -3,6 +3,8 @@ package com.project.mobilesafe.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 
@@ -44,6 +46,7 @@ public class CommonUtilsActivity extends Activity {
         public void onClick(View v, boolean status) {
             switch (v.getId()) {
                 case R.id.isv_phone_location:
+                    SearchPhoneLocationActivity.start(CommonUtilsActivity.this);
                     break;
                 case R.id.isv_sms_backup:
                     break;

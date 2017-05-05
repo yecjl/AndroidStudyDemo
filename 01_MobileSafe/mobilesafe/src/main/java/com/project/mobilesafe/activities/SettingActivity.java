@@ -18,6 +18,7 @@ import android.view.View;
 import com.android.internal.telephony.ITelephony;
 import com.project.mobilesafe.R;
 import com.project.mobilesafe.services.BlackContactInterceptService;
+import com.project.mobilesafe.services.PhoneLocationService;
 import com.project.mobilesafe.ui.SetItemView;
 import com.project.mobilesafe.utils.ServiceStatusUtils;
 
@@ -70,6 +71,7 @@ public class SettingActivity extends Activity {
         super.onResume();
         // 判断服务是否开启，设置按钮状态
         isvIntercept.setStatus(ServiceStatusUtils.isServiceRunning(this, BlackContactInterceptService.class));
+        isvLocationSet.setStatus(ServiceStatusUtils.isServiceRunning(this, PhoneLocationService.class));
     }
 
     private SetItemView.OnItemClickListener onItemClickListener = new SetItemView.OnItemClickListener() {
@@ -83,14 +85,20 @@ public class SettingActivity extends Activity {
                     edit.commit();
                     break;
                 case R.id.isv_intercept: // 骚扰拦截设置
-                    Intent service = new Intent(SettingActivity.this, BlackContactInterceptService.class);
+                    Intent serviceIntercept = new Intent(SettingActivity.this, BlackContactInterceptService.class);
                     if (status) {
-                        startService(service);
+                        startService(serviceIntercept);
                     } else {
-                        stopService(service);
+                        stopService(serviceIntercept);
                     }
                     break;
                 case R.id.isv_locationSet: // 归属地显示设置
+                    Intent serviceLocation = new Intent(SettingActivity.this, PhoneLocationService.class);
+                    if (status) {
+                        startService(serviceLocation);
+                    } else {
+                        stopService(serviceLocation);
+                    }
                     break;
                 case R.id.isv_locationStyle: // 归属地显示风格
                     break;
