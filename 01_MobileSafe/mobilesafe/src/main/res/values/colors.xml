@@ -12,4 +12,7 @@
     <color name="line">#cccccc</color>
     <color name="line_duck">#5c5c5c</color>
     <color name="pressed">#ffe8ecef</color>
+    <color name="green">#A9E246</color>
+    <color name="orange">#EEB14B</color>
+    <color name="pink">#FDA9DB</color>
 </resources>

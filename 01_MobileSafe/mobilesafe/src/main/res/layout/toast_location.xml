@@ -5,13 +5,12 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@android:id/message"
+        android:id="@+id/tv_toast_message"
+        style="@style/Text_Notice"
+        android:drawableLeft="@mipmap/notice_icon"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_gravity="center_horizontal"
-        android:shadowColor="#BB000000"
-        android:shadowRadius="2.75"
-        />
-
+        android:layout_gravity="center"
+        android:background="@drawable/shape_gray_bg_radius10"
+        android:textColor="@color/white"
+        android:text="GPS追踪" />
 </LinearLayout>

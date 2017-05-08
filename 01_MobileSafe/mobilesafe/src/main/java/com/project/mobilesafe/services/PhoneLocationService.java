@@ -5,17 +5,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.PixelFormat;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.project.mobilesafe.db.dao.AddressDao;
+import com.project.mobilesafe.ui.LocationToast;
 
 /**
  * 功能：电话归属地服务
@@ -28,6 +24,7 @@ public class PhoneLocationService extends Service {
     private TelephonyManager tm;
     private AddressDao dao;
     private BroadcastReceiver broadcastReceiver;
+    private LocationToast toast;
 
     @Nullable
     @Override
@@ -50,6 +47,7 @@ public class PhoneLocationService extends Service {
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_NEW_OUTGOING_CALL);
         registerReceiver(broadcastReceiver, filter);
+
     }
 
     /**
@@ -60,12 +58,14 @@ public class PhoneLocationService extends Service {
         public void onCallStateChanged(int state, String incomingNumber) {
             switch (state) {
                 case TelephonyManager.CALL_STATE_IDLE:
+                    if (toast != null) {
+                        toast.hide();
+                        toast = null;
+                    }
                     break;
                 case TelephonyManager.CALL_STATE_RINGING:
-                    Toast.makeText(PhoneLocationService.this, dao.findLocation(incomingNumber), Toast.LENGTH_LONG).show();
-
-
-                    wm.addView(view, params);
+                    toast = LocationToast.makeText(PhoneLocationService.this, dao.findLocation(incomingNumber), -1);
+                    toast.show();
                     break;
             }
             super.onCallStateChanged(state, incomingNumber);
@@ -79,7 +79,7 @@ public class PhoneLocationService extends Service {
         @Override
         public void onReceive(Context context, Intent intent) {
             String phone = getResultData();
-            Toast.makeText(PhoneLocationService.this, dao.findLocation(phone), Toast.LENGTH_LONG).show();
+            toast = LocationToast.makeText(PhoneLocationService.this, dao.findLocation(phone), -1);
         }
     }
 

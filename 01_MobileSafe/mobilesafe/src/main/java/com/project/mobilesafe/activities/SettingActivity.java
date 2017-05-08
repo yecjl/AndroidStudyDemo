@@ -2,15 +2,18 @@ package com.project.mobilesafe.activities;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.support.v7.app.AlertDialog;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
@@ -48,6 +51,7 @@ public class SettingActivity extends Activity {
 
     private static final String TAG = "SettingActivity";
     private SharedPreferences config;
+    private String[] toastStyles = new String[]{"卫士蓝", "苹果绿", "活力橙", "少女粉", "金属灰"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +105,17 @@ public class SettingActivity extends Activity {
                     }
                     break;
                 case R.id.isv_locationStyle: // 归属地显示风格
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SettingActivity.this)
+                            .setIcon(R.mipmap.dialog_title_default_icon)
+                            .setTitle("归属地提示框风格")
+                            .setSingleChoiceItems(toastStyles, 0, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+                    builder.show();
+
                     break;
                 case R.id.isv_watchDog: // 程序锁看门狗服务
                     break;
